@@ -14,6 +14,7 @@ private:
     char tab[8][8];
     Console* p_console;
 public:
+    ///Constructeur et destructeur
     Plateau();
     ~Plateau();
     void afficher_grille_jeu();
