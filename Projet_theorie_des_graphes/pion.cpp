@@ -10,6 +10,7 @@ Pion::Pion(int nb_pion,char couleur_pion,int ligne_pion,char colonne_pion,bool p
         m_presence_plateau=presence_plateau;
 
     }*/
+///Constructeur surchargé
 Pion::Pion(char _couleur)
 {
     m_couleur_pion=_couleur;
