@@ -12,50 +12,56 @@ using namespace std;
 ///constructeur plateau
 Plateau::Plateau()
 {
-std::cout<<"le plateau a bien ete cree"<<std::endl;
+    m_lig=4;
+    m_col=4;
+//std::cout<<"le plateau a bien ete cree"<<std::endl;
 for(int i=0;i<8;i++)
 {
     for(int j=0;j<8;j++)
     {
-        tab[i][j]=223;
+        tab[i][j]=196;
     }
 }
-tab[3][3]= 123;
-tab[4][4]= 123;
-tab[3][4]= 145;
-tab[4][3]= 145;
+tab[3][3]= 178;
+tab[4][4]= 178;
+tab[3][4]= 176;
+tab[4][3]= 176;
 
 
 }
 
 /// Destructeur PLATEAU
-Plateau::~Plateau(){
+Plateau::~Plateau()
+{
+
 }
 
 void Plateau::Display()
 {
-
+    cout<<"  a b c d e f g h"<<endl;
     for(int i=0;i<8;i++)
-{
-    for(int j=0;j<8;j++)
     {
-        cout << tab[i][j] << " " ;
+        cout<<i+1<<" ";
+        for(int j=0;j<8;j++)
+        {
+            cout << tab[i][j] << " " ;
+        }
+        cout<<endl;
     }
-}
-
 }
 
 void Plateau::Bouclejeu()
 {
     this->Display();
+    bool quit = false;
 
-    while(1)
+    while(!quit)
     {
        if(this->p_console->isKeyboardPressed())
        {
 
            char dep= this->p_console->getInputKey();
-           //this->curseur(dep);
+           this->deplacer_curseur(dep, m_lig, m_col);
            this->Display();
 
        }
@@ -63,110 +69,110 @@ void Plateau::Bouclejeu()
     }
 }
 
-void Plateau::initialiser_plateau()
-{
-      Pion pion_noir('N');
-      Pion pion_blanc('B');
-      std::vector<std::vector<Pion> > p;
-
-   for(int i=0;i<8;i++)
-   {
-       std::vector<Pion> t;
-
-         for(int j=0;j<8;j++)
-       {
-           t.push_back(i);
-       }
-       p.push_back(t);
-   }
-   std::cout<<" ABCDEFGH"<<std::endl;
-   for (int i=0;i<p.size();i++)
-   {
-       std::cout<<i+1;
-       for(int j=0;j<p[i].size();j++)
-       {
-          if((i==4)&(j==4)||(i==3)&(j==3))
-          {
-            std::cout<<pion_noir.getCouleur_pion();
-          }
-          else if ((i==4)&(j==3)||(i==3)&(j==4))
-          {
-             std::cout<<pion_blanc.getCouleur_pion();
-          }
-          else
-          {
-              std::cout<<"-";
-          }
-       }
-       std::cout<<std::endl;
-   }
-
-}
-void Plateau::menu_jeu()
-{
-    int m_choix_menu;
-    bool m_sortie_menu;
-    bool m_sortie;
-    ///Affiche le menu
-    std::cout << "1- Pour jouer à deux joueur" << std::endl;
-    std::cout << "2- Pour jouer contre l'ordinateur" << std::endl;
-    std::cout << "3- Personnaliser votre partie." << std::endl;
-    std::cout << "4- Pour connaitre les regles du jeu" << std::endl << std::endl;
-    std::cout << "5- Quitter" << std::endl << std::endl;
-    std::cout << "Rentrer la valeur de votre choix : ";
-    //Rentre la valeur voulu par le menu
-    std::cin >> m_choix_menu;
-    std::cout << std::endl << std::endl;
-
-    //applique le choix rentree
-    if(m_choix_menu == 1){
-        m_sortie_menu = 1;
-        system("cls");
-        this->initialiser_plateau();
-        this->deplacer_curseur();
-
-
-    }
-    if(m_choix_menu == 2){
-        //Message d'erreur
-        std::cout << "Pas implemente" << std::endl << std::endl;
-    }
-    if(m_choix_menu == 3){
-        m_sortie_menu = 1;
-        //On va allouer et choisir la valeur pour un plateau pimp
-        int nbrJoueur, nbrPions, nbrColonne, nbrLigne;
-        std::cout << "Rentrer le nombre de Joueur : ";
-        std::cin >> nbrJoueur;
-        std::cout << "Rentrer le nombre de pions par Joueur : ";
-        std::cin >> nbrPions;
-        std::cout << "Rentrer le nombre de Colonne : ";
-        std::cin >> nbrColonne;
-        std::cout << "Rentrer le nombre de Ligne : ";
-        std::cin >> nbrLigne;
-        //On initialise la partie avec les valeurs precedemment rentrée
-        ///this->initialisation_partie(nbrJoueur, nbrPions,nbrColonne, nbrLigne);
-        this->initialiser_plateau();
-    }
-    if(m_choix_menu == 4){
-        this->pageAccueil();
-    }
-    else{
-        system("cls");
-        std::cout << "Votre choix n'existe pas" << std::endl;
-        //inserer la detection de touche
-    }
-
-    system("cls");
-    std::cout << "lejeu se lance";
-    if(m_choix_menu == 5){
-            this->pageSortie();
-    }
-}
-
-
+//void Plateau::initialiser_plateau()
+//{
+//      Pion pion_noir('N');
+//      Pion pion_blanc('B');
+//      std::vector<std::vector<Pion> > p;
+//
+//   for(int i=0;i<8;i++)
+//   {
+//       std::vector<Pion> t;
+//
+//         for(int j=0;j<8;j++)
+//       {
+//           t.push_back(i);
+//       }
+//       p.push_back(t);
+//   }
+//   std::cout<<" ABCDEFGH"<<std::endl;
+//   for (int i=0;i<p.size();i++)
+//   {
+//       std::cout<<i+1;
+//       for(int j=0;j<p[i].size();j++)
+//       {
+//          if((i==4)&(j==4)||(i==3)&(j==3))
+//          {
+//            std::cout<<pion_noir.getCouleur_pion();
+//          }
+//          else if ((i==4)&(j==3)||(i==3)&(j==4))
+//          {
+//             std::cout<<pion_blanc.getCouleur_pion();
+//          }
+//          else
+//          {
+//              std::cout<<"-";
+//          }
+//       }
+//       std::cout<<std::endl;
+//   }
+//
+//}
+//void Plateau::menu_jeu()
+//{
+//    int m_choix_menu;
+//    bool m_sortie_menu;
+//    bool m_sortie;
+//    ///Affiche le menu
+//    std::cout << "1- Pour jouer à deux joueur" << std::endl;
+//    std::cout << "2- Pour jouer contre l'ordinateur" << std::endl;
+//    std::cout << "3- Personnaliser votre partie." << std::endl;
+//    std::cout << "4- Pour connaitre les regles du jeu" << std::endl << std::endl;
+//    std::cout << "5- Quitter" << std::endl << std::endl;
+//    std::cout << "Rentrer la valeur de votre choix : ";
+//    //Rentre la valeur voulu par le menu
+//    std::cin >> m_choix_menu;
+//    std::cout << std::endl << std::endl;
+//
+//    //applique le choix rentree
+//    if(m_choix_menu == 1){
+//        m_sortie_menu = 1;
+//        system("cls");
+//        this->initialiser_plateau();
+//        this->deplacer_curseur(dep);
+//
+//
+//    }
+//    if(m_choix_menu == 2){
+//        //Message d'erreur
+//        std::cout << "Pas implemente" << std::endl << std::endl;
+//    }
+//    if(m_choix_menu == 3){
+//        m_sortie_menu = 1;
+//        //On va allouer et choisir la valeur pour un plateau pimp
+//        int nbrJoueur, nbrPions, nbrColonne, nbrLigne;
+//        std::cout << "Rentrer le nombre de Joueur : ";
+//        std::cin >> nbrJoueur;
+//        std::cout << "Rentrer le nombre de pions par Joueur : ";
+//        std::cin >> nbrPions;
+//        std::cout << "Rentrer le nombre de Colonne : ";
+//        std::cin >> nbrColonne;
+//        std::cout << "Rentrer le nombre de Ligne : ";
+//        std::cin >> nbrLigne;
+//        //On initialise la partie avec les valeurs precedemment rentrée
+//        ///this->initialisation_partie(nbrJoueur, nbrPions,nbrColonne, nbrLigne);
+//        this->initialiser_plateau();
+//    }
+//    if(m_choix_menu == 4){
+//        this->pageAccueil();
+//    }
+//    else{
+//        system("cls");
+//        std::cout << "Votre choix n'existe pas" << std::endl;
+//        //inserer la detection de touche
+//    }
+//
+//    system("cls");
+//    std::cout << "lejeu se lance";
+//    if(m_choix_menu == 5){
+//            this->pageSortie();
+//    }
+//}
 
 
-void Plateau::deplacer_curseur()
+
+
+void Plateau::deplacer_curseur(char dep, int m_lig, int m_col)
 {
 
 bool quit = false;
@@ -174,41 +180,47 @@ bool quit = false;
 
     // Alloue la mémoire du pointeur
     pConsole = Console::getInstance();
-    int lig,col;
-    lig=4;
-    col=4;
     // Affichage avec gotoligcol et couleur
-    pConsole->gotoLigCol(lig,col);
+    pConsole->gotoLigCol(m_lig,m_col);
 
     pConsole->setColor(COLOR_DEFAULT);
 
     // Boucle événementielle
-    while (!quit)
-    {
+//    while (!quit)
+//    {
         // Si on a appuyé sur une touche du clavier
-        if (pConsole->isKeyboardPressed())
-        {
+//        if (pConsole->isKeyboardPressed())
+//        {
             // Récupère le code ASCII de la touche
-            char key = pConsole->getInputKey();
+//            char key = pConsole->getInputKey();
 
-            switch(key)
+            switch(dep)
             {
             case 'q':
-                col--;
+                m_col--;
+                pConsole->gotoLigCol(m_lig,m_col--);
                 break;
 
             case 'd':
-                col++;
+                m_col++;
+                pConsole->gotoLigCol(m_lig,m_col++);
                 break;
 
             case 'z':
-                lig--;
+                m_lig--;
+                pConsole->gotoLigCol(m_lig--,m_col);
                 break;
 
             case's':
-                lig++;
+                m_lig++;
+                pConsole->gotoLigCol(m_lig++,m_col);
                 break;
+
+            default :
+                cout<<"ERROR"<<endl;
             }
+             system("cls");
+//             this->Display();
 
 
             ///q est la touche directionnelle permettant daller vers la gauche
@@ -224,15 +236,15 @@ bool quit = false;
                  //pConsole->gotoLigCol(x,y);
                  //std::cout<< "N";*/
 
-            if (key == 'a' ) // 27 = touche escape
-            {
-                quit = true;
-            }
-        }
-    }
+//            if (key == 'a' ) // 27 = touche escape
+//            {
+//                quit = true;
+//            }
+        //}
+//    }
 
     // Libère la mémoire du pointeur !
-    Console::deleteInstance();
+//    Console::deleteInstance();
 }
 
 //Méthodes affichant des pages de jeu

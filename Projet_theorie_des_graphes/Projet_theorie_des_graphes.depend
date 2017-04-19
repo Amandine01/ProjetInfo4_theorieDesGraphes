@@ -80,7 +80,7 @@
 1492622511 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.h
 	<iostream>
 
-1492625598 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\main.cpp
+1492630165 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\main.cpp
 	<iostream>
 	"pion.h"
 	"plateau.h"
@@ -97,15 +97,17 @@
 
 1492624844 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.cpp
 
-1492623894 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.h
+1492630427 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.h
 	<string>
 
-1492625891 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.h
+1492630505 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.h
 	"pion.h"
 	"console.h"
 	<vector>
 
-1492624015 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.cpp
+1492626801 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.cpp
+	"pion.h"
+	<string>
 
 1492625261 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.cpp
 	<vector>
@@ -118,7 +120,7 @@
 	<cstdio>
 	<fstream>
 
-1492625598 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.cpp
+1492628243 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.cpp
 	<vector>
 	"plateau.h"
 	"pion.h"

@@ -13,6 +13,8 @@ private:
     int m_largeur_plateau;
     char tab[8][8];
     Console* p_console;
+    int m_lig;
+    int m_col;
 public:
     ///Constructeur et destructeur
     Plateau();
@@ -20,7 +22,7 @@ public:
     void afficher_grille_jeu();
     void initialiser_plateau();
     void menu_jeu();
-    void deplacer_curseur();
+    void deplacer_curseur(char dep, int lig, int col);
     void enregistrer_partie();
     void pageAccueil();
     void pageSortie();

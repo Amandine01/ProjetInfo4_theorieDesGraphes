@@ -5,6 +5,8 @@ class Pion
 {
 private:
     char m_couleur_pion;
+    int m_lig;
+    int m_col;
 
 public:
     Pion(char _couleur);
