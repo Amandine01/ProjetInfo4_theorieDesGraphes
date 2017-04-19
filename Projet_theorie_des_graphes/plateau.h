@@ -8,6 +8,7 @@ class Plateau
 {
 private:
     //std::vector <Pion> m_plateau;
+    ///
     int m_longueur_plateau;
     int m_largeur_plateau;
     char tab[8][8];
