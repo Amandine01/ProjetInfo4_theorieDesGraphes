@@ -1,20 +1,20 @@
 #include <iostream>
+#include "Pion.h"
+#include "plato.h"
 #include <vector>
-#include <conio.h>
-#include <windows.h>
-#include "plateau.h"
-#include "pion.h"
 #include "console.h"
+
 
 using namespace std;
 
 int main()
 {
-    // Ressources
-    Plateau plateau;
 
-    // Affichage plateau
-    plateau.afficher_plateau();
+Plateau p;
+//p.initialiser_plateau();
+p.menu_jeu();
+
+
 
     return 0;
 }
