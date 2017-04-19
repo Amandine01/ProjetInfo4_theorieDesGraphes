@@ -9,7 +9,7 @@
 #include <fstream>
 
 using namespace std;
-
+///constructeur plateau
 Plateau::Plateau()
 {
 std::cout<<"le plateau a bien ete cree"<<std::endl;
@@ -28,7 +28,7 @@ tab[4][3]= 145;
 
 }
 
-// Destructeur
+/// Destructeur PLATEAU
 Plateau::~Plateau(){
 }
 
