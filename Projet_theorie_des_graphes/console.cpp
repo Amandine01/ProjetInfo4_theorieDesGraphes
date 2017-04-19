@@ -83,10 +83,10 @@ void Console::setColor(Color col)
             this->_setColor(0, 0);
             break;
         case COLOR_RED:
-            this->_setColor(12, 0);
+            this->_setColor(15, 5);
             break;
         case COLOR_GREEN:
-            this->_setColor(0, 3);
+            this->_setColor(15, 2);
             break;
         case COLOR_BLUE:
             this->_setColor(9, 0);

@@ -12,7 +12,7 @@ private:
     int m_longueur_plateau;
     int m_largeur_plateau;
     char tab[8][8];
-    Console* p_console;
+    ///Console* pConsole;
     int m_lig;
     int m_col;
 public:

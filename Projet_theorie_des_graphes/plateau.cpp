@@ -12,8 +12,10 @@ using namespace std;
 ///constructeur plateau
 Plateau::Plateau()
 {
+    /// Ressources
     m_lig=4;
     m_col=4;
+
 //std::cout<<"le plateau a bien ete cree"<<std::endl;
 for(int i=0;i<8;i++)
 {
@@ -38,35 +40,49 @@ Plateau::~Plateau()
 
 void Plateau::Display()
 {
+    /// Ressources
+    Console* pConsole;
+
+    /// Affichage tableau
+    pConsole->setColor(COLOR_RED);
     cout<<"  a b c d e f g h"<<endl;
     for(int i=0;i<8;i++)
     {
+        pConsole->setColor(COLOR_RED);
         cout<<i+1<<" ";
         for(int j=0;j<8;j++)
         {
+            pConsole->setColor(COLOR_GREEN);
             cout << tab[i][j] << " " ;
         }
+        pConsole->setColor(COLOR_WHITE);
         cout<<endl;
     }
+
 }
 
 void Plateau::Bouclejeu()
 {
     this->Display();
     bool quit = false;
-
+    Console* pConsole = NULL;
+      // Alloue la mémoire du pointeur
+    pConsole = Console::getInstance();
     while(!quit)
     {
-       if(this->p_console->isKeyboardPressed())
+       if(pConsole->isKeyboardPressed())
        {
 
-           char dep= this->p_console->getInputKey();
+           char dep=pConsole->getInputKey();
            this->deplacer_curseur(dep, m_lig, m_col);
            this->Display();
 
        }
 
     }
+
+    Console::deleteInstance();
+
 }
 
 //void Plateau::initialiser_plateau()
@@ -197,22 +213,22 @@ bool quit = false;
             switch(dep)
             {
             case 'q':
-                m_col--;
+                ///m_col--;
                 pConsole->gotoLigCol(m_lig,m_col--);
                 break;
 
             case 'd':
-                m_col++;
+                ///m_col++;
                 pConsole->gotoLigCol(m_lig,m_col++);
                 break;
 
             case 'z':
-                m_lig--;
+                ///m_lig--;
                 pConsole->gotoLigCol(m_lig--,m_col);
                 break;
 
             case's':
-                m_lig++;
+                ///m_lig++;
                 pConsole->gotoLigCol(m_lig++,m_col);
                 break;
 
@@ -220,6 +236,7 @@ bool quit = false;
                 cout<<"ERROR"<<endl;
             }
              system("cls");
+
 //             this->Display();
 
 
