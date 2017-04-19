@@ -1,13 +1,17 @@
 #ifndef PLATO_H_INCLUDED
 #define PLATO_H_INCLUDED
-#include "Pion.h"
+#include "pion.h"
+#include "console.h"
 #include <vector>
+
 class Plateau
 {
 private:
-    std::vector <Pion> m_plateau;
+    //std::vector <Pion> m_plateau;
     int m_longueur_plateau;
     int m_largeur_plateau;
+    char tab[8][8];
+    Console* p_console;
 public:
     Plateau();
     ~Plateau();

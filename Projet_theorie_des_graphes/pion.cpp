@@ -1,4 +1,4 @@
-#include "Pion.h"
+#include "pion.h"
 #include <string>
 /*
 Pion::Pion(int nb_pion,char couleur_pion,int ligne_pion,char colonne_pion,bool presence_plateau)

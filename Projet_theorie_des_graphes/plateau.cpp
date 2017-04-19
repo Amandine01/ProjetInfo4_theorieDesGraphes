@@ -1,5 +1,5 @@
 #include <vector>
-#include "plato.h"
+#include "plateau.h"
 #include "pion.h"
 #include<iostream>
 #include <string>
@@ -8,13 +8,59 @@
 #include <cstdio>
 #include <fstream>
 
+using namespace std;
+
 Plateau::Plateau()
 {
 std::cout<<"le plateau a bien ete cree"<<std::endl;
+for(int i=0;i<8;i++)
+{
+    for(int j=0;j<8;j++)
+    {
+        tab[i][j]=223;
+    }
+}
+tab[3][3]= 123;
+tab[4][4]= 123;
+tab[3][4]= 145;
+tab[4][3]= 145;
+
+
 }
 
 // Destructeur
 Plateau::~Plateau(){
+}
+
+void Plateau::Display()
+{
+
+    for(int i=0;i<8;i++)
+{
+    for(int j=0;j<8;j++)
+    {
+        cout << tab[i][j] << " " <<endl;
+    }
+}
+
+}
+
+void Plateau::Bouclejeu()
+{
+    this->Display();
+
+    while(1)
+    {
+       if(this->p_console->isKeyBoardPressed())
+       {
+
+           char dep= this->p_console->getInputKey();
+           this->curseur(dep);
+           this->Display;
+
+       }
+
+    }
 }
 
 void Plateau::initialiser_plateau()

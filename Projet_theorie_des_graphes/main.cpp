@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Pion.h"
-#include "plato.h"
+#include "pion.h"
+#include "plateau.h"
 #include <vector>
 #include "console.h"
 
