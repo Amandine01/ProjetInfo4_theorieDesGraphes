@@ -1,107 +1,54 @@
-#include <iostream>
-#include <vector>
-#include <conio.h>
-#include <windows.h>
-#include "pion.h"
-#include "console.h"
-
-// Constructeurs
-Pion :: Pion()
-         : m_couleur(" "), m_nb_pion(0)
-{
-
-}
-
-Pion :: Pion(std::string _couleur, int _nb_pion)
-         : m_couleur(_couleur), m_nb_pion(_nb_pion)
-{
-
-}
-
-// Destructeur
-Pion :: ~Pion()
-{
-}
-
-// Methodes
-// Fonction verifiant si le pion se trouve sur le plateau ou non
-bool Pion :: poser_pion()
-{
-    /*if ()
+#include "Pion.h"
+#include <string>
+/*
+Pion::Pion(int nb_pion,char couleur_pion,int ligne_pion,char colonne_pion,bool presence_plateau)
     {
-        std::cout << "Le pion est sur le plateau" << std::endl;
-        return true;
-    }
-    else
-    {
-        std::cout << "Le pion n est pas sur le plateau. Veuillez le placer sur le plateau" << std::endl;
-        return false;
+        ///m_nb_pion=_nb_pion;
+        m_couleur_pion=couleur_pion;
+        m_ligne_pion=ligne_pion;
+        m_colonne_pion=colonne_pion;
+        m_presence_plateau=presence_plateau;
+
     }*/
-}
-
-// Afficher les pions a l etat initial
-void Pion :: afficher_pion()
+Pion::Pion(char _couleur)
 {
-    /// Ressources
-    // Trou
-    char trou = '-';
+    m_couleur_pion=_couleur;
+}
+Pion::~Pion(){
 
-    // Pion noir
-    char noir = 249;
-
-    // Pion blanc
-    char blanc = 'O';
-
-    // Compteur
-    int cpt = 0;
-
-    // Pointeur sur Console
-    Console * pConsole = NULL;
-
-   /*/// Afficher pions
-    for(int i = 0; i<7; i++)
-    {
-        pConsole -> gotoLigCol(i*2+2,1);
-        std::cout << E;
-        //tab[i*2+2][j]
     }
 
-    // Afficher Rhinoceros
-    for(int i = 0; i<5; i++)
-    {
-        pConsole -> gotoLigCol(i*2+2,24);
-        std::cout << R;
-    }
-    pConsole -> gotoLigCol(30,0);
-
-    // Afficher Montagnes
-    for(int i = 0; i<3; i++)
-    {
-        pConsole -> gotoLigCol(i*2+4,12);
-        std::cout << M;
-    }*/
-    pConsole -> gotoLigCol(30,0);
+/*
+///Accesseurs
+int Pion::getLigne_pion(){
+    return m_ligne_pion;
 }
 
-
-// Accesseurs
-
-std::string Pion :: getCouleur()
-{
-    return m_couleur;
+char Pion::getColonne_pion(){
+    return m_colonne_pion;
 }
 
-int Pion :: getNb_pion()
-{
-    return m_nb_pion;
+bool Pion::getPresence_plateau(){
+    return m_presence_plateau;
 }
 
-void Pion :: setCouleur(std::string couleur)
-{
-    m_couleur = couleur;
+void Pion::setLigne_pion(int ligne_pion){
+    m_ligne_pion = ligne_pion;
 }
 
-void Pion :: setNb_pion(int nb_pion)
+void Pion::setColonne_pion(char colonne_pion){
+    m_colonne_pion = colonne_pion;
+}
+
+void Pion::setPresence_plateau(bool presence_plateau){
+    m_presence_plateau = presence_plateau;
+}*/
+char Pion::getCouleur_pion()
 {
-    m_nb_pion = nb_pion;
+    return m_couleur_pion;
+
+}
+void Pion::setCouleur_pion(char _couleur)
+{
+    m_couleur_pion=_couleur;
 }

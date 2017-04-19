@@ -1,32 +1,39 @@
-#ifndef PLATEAU_H_INCLUDED
-#define PLATEAU_H_INCLUDED
-
+#ifndef PLATO_H_INCLUDED
+#define PLATO_H_INCLUDED
+#include "Pion.h"
 #include <vector>
-#include "pion.h"
-#include "console.h"
-#include <conio.h>
-#include <windows.h>
-
 class Plateau
 {
 private:
     std::vector <Pion> m_plateau;
-
+    int m_longueur_plateau;
+    int m_largeur_plateau;
 public:
-    // Constructeurs
     Plateau();
-    Plateau(std::vector <Pion> _plateau);
-
-    // Destructeur
     ~Plateau();
-
-    // Methodes
-    void afficher_plateau();
-
-    // Accesseurs
-    std::vector <Pion> getPlateau();
-
-    void setPlateau(std::vector <Pion> plateau);
+    void afficher_grille_jeu();
+    void initialiser_plateau();
+    void menu_jeu();
+    void deplacer_curseur();
+    void enregistrer_partie();
+    void pageAccueil();
+    void pageSortie();
+    void pageVictoire();
+    void Display();
+    ///accesseurs
+    //std::vector <Pion> getPlateau();
+    //std::vector <Pion> getPions_du_joueur();
+    int getLongueur_plateau();
+    int getLargeur_plateau();
+    //Setter
+    //void setPlateau(std::vector <Pion> plateau);
+    //void setAnimal_plateau(std::vector <Pion> pions_du_plateau);
+    void setLongueur_plateau(int longueur_plateau);
+    void setLargeur_plateau(int largeur_plateau);
 };
 
-#endif // PLATEAU_H_INCLUDED
+
+
+
+
+#endif // PLATO_H_INCLUDED

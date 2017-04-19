@@ -1,30 +1,30 @@
 #ifndef PION_H_INCLUDED
 #define PION_H_INCLUDED
-
+#include <string>
 class Pion
 {
 private:
-    std::string m_couleur;
-    int m_nb_pion;
+    char m_couleur_pion;
 
 public:
-    // Constructeurs
-    Pion();
-    Pion(std::string _couleur, int _nb_pion);
-
-    // Destructeur
+    Pion(char _couleur);
     ~Pion();
+    bool plateau();
+    ///void affichage_pion();
+    ///getter
+    ///int getNb_pion();
+    char getCouleur_pion();
+    ///int getLigne_pion();
+   /// char getColonne_pion();
+   /// bool getPresence_plateau();
+    ///setter
+    ///void setNb_pion(int nb_pion);
+    void setCouleur_pion(char _couleur);
+   /// void setLigne_pion(int ligne_pion);
+   /// void setColonne_pion(char colonne_pion);
+    ///void setPresence_plateau(bool presence_plateau);
 
-    // Methodes
-    void afficher_pion();
-    bool poser_pion();
 
-    // Accesseurs
-    std::string getCouleur();
-    int getNb_pion();
-
-    void setCouleur(std::string couleur);
-    void setNb_pion(int nb_pion);
 };
 
 #endif // PION_H_INCLUDED
