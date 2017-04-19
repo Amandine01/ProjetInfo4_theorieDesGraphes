@@ -21,13 +21,11 @@ public:
     void pageVictoire();
     void Display();
     ///accesseurs
-    //std::vector <Pion> getPlateau();
-    //std::vector <Pion> getPions_du_joueur();
+
     int getLongueur_plateau();
     int getLargeur_plateau();
     //Setter
-    //void setPlateau(std::vector <Pion> plateau);
-    //void setAnimal_plateau(std::vector <Pion> pions_du_plateau);
+
     void setLongueur_plateau(int longueur_plateau);
     void setLargeur_plateau(int largeur_plateau);
 };
