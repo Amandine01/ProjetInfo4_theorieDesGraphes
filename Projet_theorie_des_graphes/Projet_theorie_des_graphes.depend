@@ -41,21 +41,34 @@
 	<conio.h>
 	<windows.h>
 
-<<<<<<< HEAD
+1492624006 D
+
 1492462953 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.cpp
-=======
+
 1492618663 source:c:\users\admin.pc-lab\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.cpp
->>>>>>> origin/master
+
+1492624015 gin/master
 	"console.h"
 	<conio.h>
 	<windows.h>
+	<iostream>
+	"pion.h"
+	"plateau.h"
+	<vector>
+	"console.h"
+	"pion.h"
+	<string>
 
-<<<<<<< HEAD
 1492462384 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.h
 	<iostream>
 
-1492624844 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\main.cpp
-=======
+1492625159 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\main.cpp
+	<iostream>
+	"pion.h"
+	"plateau.h"
+	<vector>
+	"console.h"
+
 1492618663 c:\users\admin.pc-lab\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.h
 	<iostream>
 
@@ -68,24 +81,17 @@
 	<iostream>
 
 1492624006 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\main.cpp
->>>>>>> origin/master
-	<iostream>
-	"pion.h"
-	"plateau.h"
-	<vector>
-	"console.h"
 
-<<<<<<< HEAD
 1492623604 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.h
 	<string>
 
-1492624865 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.h
+1492625159 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.h
 	"pion.h"
 	"console.h"
 	<vector>
 
 1492624844 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.cpp
-=======
+
 1492623894 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.h
 	<string>
 
@@ -94,7 +100,15 @@
 	<vector>
 
 1492624015 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.cpp
->>>>>>> origin/master
+
+1492624952 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.cpp
+	<vector>
+	"plateau.h"
 	"pion.h"
+	<iostream>
 	<string>
+	<cstdlib>
+	"console.h"
+	<cstdio>
+	<fstream>
 

@@ -39,7 +39,7 @@ void Plateau::Display()
 {
     for(int j=0;j<8;j++)
     {
-        cout << tab[i][j] << " " <<endl;
+        cout << tab[i][j] << " " ;
     }
 }
 
@@ -51,12 +51,12 @@ void Plateau::Bouclejeu()
 
     while(1)
     {
-       if(this->p_console->isKeyBoardPressed())
+       if(this->p_console->isKeyboardPressed())
        {
 
            char dep= this->p_console->getInputKey();
-           this->curseur(dep);
-           this->Display;
+           //this->curseur(dep);
+           this->Display();
 
        }
 
@@ -164,10 +164,7 @@ void Plateau::menu_jeu()
 }
 
 
-void Plateau::Display()
-{
 
-}
 
 void Plateau::deplacer_curseur()
 {

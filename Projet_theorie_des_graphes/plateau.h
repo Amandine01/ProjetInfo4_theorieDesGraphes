@@ -1,10 +1,7 @@
 #ifndef PLATO_H_INCLUDED
 #define PLATO_H_INCLUDED
 #include "pion.h"
-<<<<<<< HEAD
 #include "console.h"
-=======
->>>>>>> origin/master
 #include <vector>
 
 class Plateau
@@ -27,6 +24,7 @@ public:
     void pageSortie();
     void pageVictoire();
     void Display();
+    void Bouclejeu();
     ///accesseurs
 
     int getLongueur_plateau();

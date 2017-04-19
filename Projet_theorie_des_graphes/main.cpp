@@ -12,7 +12,9 @@ int main()
 
 Plateau p;
 //p.initialiser_plateau();
-p.menu_jeu();
+p.Bouclejeu();
+//p.menu_jeu();
+
 
 
 
