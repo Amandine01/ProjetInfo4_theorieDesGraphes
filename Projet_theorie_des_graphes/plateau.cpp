@@ -1,5 +1,5 @@
 #include <vector>
-#include "plato.h"
+#include "plateau.h"
 #include "pion.h"
 #include<iostream>
 #include <string>

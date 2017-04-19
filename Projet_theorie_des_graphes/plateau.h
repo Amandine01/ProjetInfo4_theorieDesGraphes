@@ -1,6 +1,6 @@
 #ifndef PLATO_H_INCLUDED
 #define PLATO_H_INCLUDED
-#include "Pion.h"
+#include "pion.h"
 #include <vector>
 class Plateau
 {

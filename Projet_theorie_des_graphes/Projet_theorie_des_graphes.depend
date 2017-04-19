@@ -49,3 +49,29 @@
 1492618663 c:\users\admin.pc-lab\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.h
 	<iostream>
 
+1492622511 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.cpp
+	"console.h"
+	<conio.h>
+	<windows.h>
+
+1492622511 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.h
+	<iostream>
+
+1492624006 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\main.cpp
+	<iostream>
+	"pion.h"
+	"plateau.h"
+	<vector>
+	"console.h"
+
+1492623894 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.h
+	<string>
+
+1492624029 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.h
+	"pion.h"
+	<vector>
+
+1492624015 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.cpp
+	"pion.h"
+	<string>
+
