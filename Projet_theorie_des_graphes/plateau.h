@@ -19,6 +19,8 @@ public:
     ///Constructeur et destructeur
     Plateau();
     ~Plateau();
+
+    // Methodes
     void afficher_grille_jeu();
     void initialiser_plateau();
     void menu_jeu();

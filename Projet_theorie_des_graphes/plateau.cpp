@@ -16,20 +16,19 @@ Plateau::Plateau()
     m_lig=4;
     m_col=4;
 
-//std::cout<<"le plateau a bien ete cree"<<std::endl;
-for(int i=0;i<8;i++)
-{
-    for(int j=0;j<8;j++)
+    // Creation du plateau
+    for(int i=0;i<8;i++)
     {
-        tab[i][j]=196;
+        for(int j=0;j<8;j++)
+        {
+            tab[i][j]=196;
+        }
     }
-}
-tab[3][3]= 178;
-tab[4][4]= 178;
-tab[3][4]= 176;
-tab[4][3]= 176;
-
-
+    // Initialisation des cases
+    tab[3][3]= 178;
+    tab[4][4]= 178;
+    tab[3][4]= 176;
+    tab[4][3]= 176;
 }
 
 /// Destructeur PLATEAU
@@ -44,10 +43,12 @@ void Plateau::Display()
     Console* pConsole;
 
     /// Affichage tableau
+    // Afficher les lettres
     pConsole->setColor(COLOR_RED);
     cout<<"  a b c d e f g h"<<endl;
     for(int i=0;i<8;i++)
     {
+        // Afficher les chiffres
         pConsole->setColor(COLOR_RED);
         cout<<i+1<<" ";
         for(int j=0;j<8;j++)
@@ -63,11 +64,19 @@ void Plateau::Display()
 
 void Plateau::Bouclejeu()
 {
+    // Afficher le plateau
     this->Display();
+
+    // Si quit est faux
     bool quit = false;
+
+    // Poiteur sur console
     Console* pConsole = NULL;
-      // Alloue la mémoire du pointeur
+
+    // Allouer la mémoire du pointeur
     pConsole = Console::getInstance();
+
+    // Boucle infinie
     while(!quit)
     {
        if(pConsole->isKeyboardPressed())
@@ -191,7 +200,8 @@ void Plateau::Bouclejeu()
 void Plateau::deplacer_curseur(char dep, int m_lig, int m_col)
 {
 
-bool quit = false;
+    // Ressources
+    bool quit = false;
     Console* pConsole = NULL;
 
     // Alloue la mémoire du pointeur
@@ -210,23 +220,28 @@ bool quit = false;
             // Récupère le code ASCII de la touche
 //            char key = pConsole->getInputKey();
 
+            // Choix
             switch(dep)
             {
+            // Si on appuie sur la touche "q"
             case 'q':
                 ///m_col--;
-                pConsole->gotoLigCol(m_lig,m_col--);
+                pConsole->gotoLigCol(m_lig,m_col-2);
                 break;
 
+            // Si on appuie sur la touche "d"
             case 'd':
                 ///m_col++;
-                pConsole->gotoLigCol(m_lig,m_col++);
+                pConsole->gotoLigCol(m_lig,m_col+2);
                 break;
 
+            // Si on appuie sur la touche "z"
             case 'z':
                 ///m_lig--;
                 pConsole->gotoLigCol(m_lig--,m_col);
                 break;
 
+            // Si on appuie sur la touche "s"
             case's':
                 ///m_lig++;
                 pConsole->gotoLigCol(m_lig++,m_col);
@@ -265,8 +280,9 @@ bool quit = false;
 }
 
 //Méthodes affichant des pages de jeu
-void Plateau::pageAccueil(){
-
+void Plateau::pageAccueil()
+{
+    // effacer l'ecran
     system("cls");
 
     std::ifstream presentation("presentation.txt");
@@ -278,7 +294,7 @@ void Plateau::pageAccueil(){
         // Tant qu'on a pas atteint la fin de regles.txt
         while(getline(presentation,texte))
         {
-            // On affiche les règles du jeu
+            // On affiche les regles du jeu
             std::cout << texte << std::endl;
         }
     }
@@ -296,14 +312,16 @@ void Plateau::pageAccueil(){
     ///system("cls");
 }
 
-void Plateau::pageVictoire(){
+void Plateau::pageVictoire()
+{
     std::cout << "Bien joue!" << std::endl << std::endl;
     ///Affiche la page de victoire
     ///this->DetectionTouche();
     system("cls");
 }
 
-void Plateau::pageSortie(){
+void Plateau::pageSortie()
+{
         std::cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << std::endl << std::endl;
         std::cout << "                                                 " << std::endl << std::endl;
         std::cout << "                                                 " << std::endl << std::endl;

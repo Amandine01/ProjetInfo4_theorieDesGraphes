@@ -9,9 +9,12 @@ using namespace std;
 
 int main()
 {
+    // Ressources
+    Plateau p;
 
-Plateau p;
-p.Bouclejeu();
-//p.menu_jeu();
+    // Lancer la boucle de jeu
+    p.Bouclejeu();
+    //p.menu_jeu();
+
     return 0;
 }
