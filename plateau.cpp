@@ -8,9 +8,6 @@
 #include <cstdio>
 #include <fstream>
 
-#define PIONBLANC 178
-#define PIONNOIR 176
-
 
 using namespace std;
 ///constructeur plateau
@@ -25,14 +22,14 @@ Plateau::Plateau()
     {
         for(int j=0; j<8; j++)
         {
-            tab[i][j]=196;
+            tab[i][j]='-';
         }
     }
     // Initialisation des cases
-    tab[3][3]= PIONBLANC;
-    tab[4][4]= PIONBLANC;
-    tab[3][4]= PIONNOIR;
-    tab[4][3]= PIONNOIR;
+    tab[3][3]= 'B';
+    tab[4][4]= 'B';
+    tab[3][4]= 'N';
+    tab[4][3]= 'N';
 }
 
 /// Destructeur PLATEAU
@@ -84,19 +81,22 @@ void Plateau::Bouclejeu()
     // Boucle infinie
     while(!quit)
     {
-        this->case_possible(turn);
+
         if (turn%2==1) ///JOUEUR NOIR
         {
 
 
-            ///cout<<"Le premier joueur joue (pions noirs joue)"<<endl;
+            ///
             if(pConsole->isKeyboardPressed())
             {
+                this->case_possible(turn);
+                system("cls");
 
+                this->Display();
                 char dep=pConsole->getInputKey();
                 this->deplacer_curseur(dep, m_lig, m_col);
                 this->Display();
-
+                cout<<"Le premier joueur joue (pions noirs joue)"<<endl;
                 ///fonction Poser pion
             }
         }
@@ -108,11 +108,14 @@ void Plateau::Bouclejeu()
             if(pConsole->isKeyboardPressed())
             {
 
+                this->case_possible(turn);
+                system("cls");
+
+                this->Display();
                 char dep=pConsole->getInputKey();
                 this->deplacer_curseur(dep, m_lig, m_col);
-                ///cout<<"Le deuxième joueur joue (pions blancs joue)"<<endl;
                 this->Display();
-                ///fonction Coup possible
+                cout<<"Le deuxieme joueur joue (pions blancs joue)"<<endl;
                 ///fonction Poser pion
 
             }
@@ -126,53 +129,80 @@ void Plateau::Bouclejeu()
 
 void Plateau::case_possible (int turn)
 {
-    if (turn%2==1) ///Joueur noir
+    if (turn%2==1)
     {
-        for(int i=0;i<8;i++)
+        for(int i=0; i<8; i++)
         {
-            for(int j=0;j<8;j++)
+            for(int j=0; j<8; j++)
             {
-                if (tab[i][j]==PIONBLANC)
+                if (tab[i][j]=='B')
                 {
-                    if ((tab[i+1][j]==196)&&(tab[i-1][j]==PIONNOIR))
-                        tab[i+1][j]=42;
-                        //cout<<tab[i+1][j];
-                    if ((tab[i-1][j]==196)&&(tab[i+1][j]==PIONNOIR))
-                        tab[i-1][j]=42;
-                        //cout<<tab[i-1][j];
-                    if ((tab[i-1][j-1]==196)&&(tab[i+1][j+1]==PIONNOIR))
-                        tab[i-1][j-1]=42;
-                        //cout<<tab[i-1][j-1];
-                    if  ((tab[i+1][j+1]==196)&&(tab[i-1][j-1]==PIONNOIR))
-                        tab[i+1][j+1]=42;
-                        //cout<<tab[i+1][j+1];
-                    if ((tab[i+1][j-1]==196)&&(tab[i-1][j+1]==PIONNOIR))
-                        tab[i+1][j-1]=42;
-                        //cout<<tab[i+1][j-1];
-                    if ((tab[i-1][j+1]==196)&&(tab[i+1][j-1]==PIONNOIR))
-                        tab[i-1][j+1]=42;
-                        //cout<<tab[i-1][j+1];
-                    if ((tab[i][j-1]==196)&&(tab[i][j+1]==PIONNOIR))
-                        tab[i][j-1]=42;
-                        //cout<<tab[i][j-1];
-                    if ((tab[i][j+1]==196)&&(tab[i][j-1]==PIONNOIR))
-                        tab[i][j+1]=42;
-                        //cout<<tab[i][j+1];
+                    if ((tab[i+1][j]=='N')&&(tab[i-1][j]=='-'))
+                        tab[i-1][j]='X';
+
+                    if ((tab[i+1][j]=='-')&&(tab[i-1][j]=='N'))
+                        tab[i+1][j]='X';
+
+
+                    if ((tab[i-1][j-1]=='-')&&(tab[i+1][j+1]=='N'))
+                        tab[i-1][j-1]='X';
+
+                    if  ((tab[i+1][j+1]=='-')&&(tab[i-1][j-1]=='N'))
+                        tab[i+1][j+1]='X';
+
+                    if ((tab[i+1][j-1]=='-')&&(tab[i-1][j+1]=='N'))
+                        tab[i+1][j-1]='X';
+
+                    if ((tab[i-1][j+1]=='-')&&(tab[i+1][j-1]=='N'))
+                        tab[i-1][j+1]='X';
+
+                    if ((tab[i][j-1]=='-')&&(tab[i][j+1]=='N'))
+                        tab[i][j-1]='X';
+
+                    if ((tab[i][j+1]=='-')&&(tab[i][j-1]=='N'))
+                        tab[i][j+1]='X';
+                }
+            }
+        }
+
+    }
+
+    if (turn%2==0)
+    {
+        for(int i=0; i<8; i++)
+        {
+            for(int j=0; j<8; j++)
+            {
+                if (tab[i][j]=='N')
+                {
+                    if ((tab[i+1][j]=='B')&&(tab[i-1][j]=='-'))
+                        tab[i-1][j]='X';
+
+                    if ((tab[i+1][j]=='-')&&(tab[i-1][j]=='B'))
+                        tab[i+1][j]='X';
+
+
+                    if ((tab[i-1][j-1]=='-')&&(tab[i+1][j+1]=='B'))
+                        tab[i-1][j-1]='X';
+
+                    if  ((tab[i+1][j+1]=='-')&&(tab[i-1][j-1]=='B'))
+                        tab[i+1][j+1]='X';
+
+                    if ((tab[i+1][j-1]=='-')&&(tab[i-1][j+1]=='B'))
+                        tab[i+1][j-1]='X';
+
+                    if ((tab[i-1][j+1]=='-')&&(tab[i+1][j-1]=='B'))
+                        tab[i-1][j+1]='X';
+
+                    if ((tab[i][j-1]=='-')&&(tab[i][j+1]=='B'))
+                        tab[i][j-1]='X';
+
+                    if ((tab[i][j+1]=='-')&&(tab[i][j-1]=='B'))
+                        tab[i][j+1]='X';
                 }
             }
         }
     }
-
-//    if (turn%2==0) ///Joueur blanc
-//    {
-//        for(int i=0;i<8;i++)
-//        {
-//            for(int j=0;j<8;j++)
-//            {
-//                if tab[i][j]=='N'
-//            }
-//        }
-//    }
 }
 
 void Plateau::menu_jeu()
