@@ -1,0 +1,145 @@
+# depslib dependency file v1.0
+1491405475 source:c:\users\amandine\desktop\ing 2\info\projet\projet_theorie_des_graphes\main.cpp
+	<iostream>
+	<vector>
+	<conio.h>
+	<windows.h>
+	"plateau.h"
+	"pion.h"
+	"console.h"
+
+1492462953 source:c:\users\amandine\desktop\ing 2\info\projet\projet_theorie_des_graphes\console.cpp
+	"console.h"
+	<conio.h>
+	<windows.h>
+
+1492462384 c:\users\amandine\desktop\ing 2\info\projet\projet_theorie_des_graphes\console.h
+	<iostream>
+
+1491405213 source:c:\users\amandine\desktop\ing 2\info\projet\projet_theorie_des_graphes\pion.cpp
+	<iostream>
+	<vector>
+	<conio.h>
+	<windows.h>
+	"pion.h"
+	"console.h"
+
+1491405228 c:\users\amandine\desktop\ing 2\info\projet\projet_theorie_des_graphes\pion.h
+
+1492462628 source:c:\users\amandine\desktop\ing 2\info\projet\projet_theorie_des_graphes\plateau.cpp
+	<iostream>
+	<vector>
+	"plateau.h"
+	<conio.h>
+	<windows.h>
+	<fstream>
+
+1491320751 c:\users\amandine\desktop\ing 2\info\projet\projet_theorie_des_graphes\plateau.h
+	<vector>
+	"pion.h"
+	"console.h"
+	<conio.h>
+	<windows.h>
+
+1492624006 D
+
+1492695691 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.cpp
+	"console.h"
+	<conio.h>
+	<windows.h>
+
+1492618663 source:c:\users\admin.pc-lab\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.cpp
+
+1492624015 gin/master
+	"console.h"
+	<conio.h>
+	<windows.h>
+	<iostream>
+	"pion.h"
+	"plateau.h"
+	<vector>
+	"console.h"
+	"pion.h"
+	<string>
+
+1492695691 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.h
+	<iostream>
+
+1492633003 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\main.cpp
+	<iostream>
+	"pion.h"
+	"plateau.h"
+	<vector>
+	"console.h"
+
+1492618663 c:\users\admin.pc-lab\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.h
+	<iostream>
+
+1492695416 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.cpp
+	"console.h"
+	<conio.h>
+	<windows.h>
+
+1492695416 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\console.h
+	<iostream>
+
+1492699986 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\main.cpp
+	<iostream>
+	"pion.h"
+	"plateau.h"
+	<vector>
+	"console.h"
+
+1492630735 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.h
+	<string>
+
+1492633029 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.h
+	"pion.h"
+	"console.h"
+	<vector>
+
+1492626783 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.cpp
+	"pion.h"
+	<string>
+
+1492630427 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.h
+	<string>
+
+1492708640 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.h
+	"pion.h"
+	"console.h"
+	<vector>
+
+1492626801 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\pion.cpp
+	"pion.h"
+	<string>
+
+1492696035 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.cpp
+	<vector>
+	"plateau.h"
+	"pion.h"
+	<iostream>
+	<string>
+	<cstdlib>
+	"console.h"
+	<cstdio>
+	<fstream>
+
+1492708061 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\plateau.cpp
+	<vector>
+	"plateau.h"
+	"pion.h"
+	<iostream>
+	<string>
+	<cstdlib>
+	"console.h"
+	<cstdio>
+	<fstream>
+
+1492698490 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\joueur.cpp
+	"Joueur.h"
+	"Plateau.h"
+
+1492698781 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\joueur.h
+	"plateau.h"
+
