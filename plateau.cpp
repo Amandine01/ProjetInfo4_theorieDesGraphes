@@ -82,7 +82,7 @@ void Plateau::Bouclejeu()
     while(!quit)
     {
 
-        if (turn%2==1) ///JOUEUR NOIR
+        if (turn%2==0) ///JOUEUR NOIR
         {
 
 
@@ -102,7 +102,7 @@ void Plateau::Bouclejeu()
         }
 
 
-        if (turn%2==0) ///JOUEUR BLANC
+        if (turn%2==1) ///JOUEUR BLANC
         {
 
             if(pConsole->isKeyboardPressed())
