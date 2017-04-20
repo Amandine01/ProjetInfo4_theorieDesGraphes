@@ -190,16 +190,65 @@ void Plateau::Bouclejeu()
 
 void Plateau::deplacer_curseur(char dep, int m_lig, int m_col)
 {
-
-bool quit = false;
+ bool quit = false;
     Console* pConsole = NULL;
+    int ligne=0, colonne=0;
+    char c = 0;
 
     // Alloue la mémoire du pointeur
     pConsole = Console::getInstance();
+
     // Affichage avec gotoligcol et couleur
-    pConsole->gotoLigCol(m_lig,m_col);
+    pConsole->gotoLigCol(20, 0);
 
     pConsole->setColor(COLOR_DEFAULT);
+
+    // Boucle événementielle
+    while (!quit)
+    {
+
+        // Si on a appuyé sur une touche du clavier
+        if (pConsole->isKeyboardPressed())
+        {
+
+            c = pConsole->getInputKey();
+
+
+            switch(c)
+            {
+            case 'z':
+                ligne--;
+                break;
+            case 's':
+                ligne++;
+                break;
+            case 'q':
+                colonne--;
+                break;
+            case 'd':
+                colonne ++;
+                break;
+            default:
+                quit = true;
+                break;
+            }
+
+        }
+
+        pConsole->gotoLigCol(ligne, colonne);
+    }
+
+    // Libère la mémoire du pointeur !
+    Console::deleteInstance();
+//bool quit = false;
+    //Console* pConsole = NULL;
+
+    // Alloue la mémoire du pointeur
+    //pConsole = Console::getInstance();
+    // Affichage avec gotoligcol et couleur
+    //pConsole->gotoLigCol(m_lig,m_col);
+
+    //pConsole->setColor(COLOR_DEFAULT);
 
     // Boucle événementielle
 //    while (!quit)
@@ -210,32 +259,32 @@ bool quit = false;
             // Récupère le code ASCII de la touche
 //            char key = pConsole->getInputKey();
 
-            switch(dep)
-            {
-            case 'q':
+            //switch(dep)
+            //{
+            //case 'q':
                 ///m_col--;
-                pConsole->gotoLigCol(m_lig,m_col--);
-                break;
+                //pConsole->gotoLigCol(m_lig,m_col--);
+                //break;
 
-            case 'd':
+            //case 'd':
                 ///m_col++;
-                pConsole->gotoLigCol(m_lig,m_col++);
-                break;
+                //pConsole->gotoLigCol(m_lig,m_col++);
+                //break;
 
-            case 'z':
+            //case 'z':
                 ///m_lig--;
-                pConsole->gotoLigCol(m_lig--,m_col);
-                break;
+                ////pConsole->gotoLigCol(m_lig--,m_col);
+                //break;
 
-            case's':
+            //case's':
                 ///m_lig++;
-                pConsole->gotoLigCol(m_lig++,m_col);
-                break;
+                //pConsole->gotoLigCol(m_lig++,m_col);
+                //break;
 
-            default :
-                cout<<"ERROR"<<endl;
-            }
-             system("cls");
+            //default :
+                //cout<<"ERROR"<<endl;
+            //}
+             //system("cls");
 
 //             this->Display();
 

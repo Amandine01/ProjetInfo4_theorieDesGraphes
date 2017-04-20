@@ -39,7 +39,7 @@ class Console
         // Méthodes publiques
         void gotoLigCol(int lig, int col);
         bool isKeyboardPressed();
-        int getInputKey();
+        char getInputKey();
         void setColor(Color col);
 };
 

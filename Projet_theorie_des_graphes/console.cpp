@@ -38,7 +38,7 @@ void Console::gotoLigCol(int lig, int col)
     SetConsoleCursorPosition( GetStdHandle( STD_OUTPUT_HANDLE ), mycoord );
 }
 
-int Console::getInputKey()
+char Console::getInputKey()
 {
     return getch();
 }
