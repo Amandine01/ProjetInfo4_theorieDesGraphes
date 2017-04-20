@@ -94,45 +94,6 @@ void Plateau::Bouclejeu()
 
 }
 
-//void Plateau::initialiser_plateau()
-//{
-//      Pion pion_noir('N');
-//      Pion pion_blanc('B');
-//      std::vector<std::vector<Pion> > p;
-//
-//   for(int i=0;i<8;i++)
-//   {
-//       std::vector<Pion> t;
-//
-//         for(int j=0;j<8;j++)
-//       {
-//           t.push_back(i);
-//       }
-//       p.push_back(t);
-//   }
-//   std::cout<<" ABCDEFGH"<<std::endl;
-//   for (int i=0;i<p.size();i++)
-//   {
-//       std::cout<<i+1;
-//       for(int j=0;j<p[i].size();j++)
-//       {
-//          if((i==4)&(j==4)||(i==3)&(j==3))
-//          {
-//            std::cout<<pion_noir.getCouleur_pion();
-//          }
-//          else if ((i==4)&(j==3)||(i==3)&(j==4))
-//          {
-//             std::cout<<pion_blanc.getCouleur_pion();
-//          }
-//          else
-//          {
-//              std::cout<<"-";
-//          }
-//       }
-//       std::cout<<std::endl;
-//   }
-//
-//}
 //void Plateau::menu_jeu()
 //{
 //    int m_choix_menu;
@@ -199,13 +160,8 @@ void Plateau::Bouclejeu()
 
 void Plateau::deplacer_curseur(char dep, int m_lig, int m_col)
 {
-<<<<<<< HEAD
- bool quit = false;
-=======
-
     // Ressources
     bool quit = false;
->>>>>>> origin/master
     Console* pConsole = NULL;
     int ligne=0, colonne=0;
     char c = 0;
@@ -221,6 +177,25 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col)
     // Boucle événementielle
     while (!quit)
     {
+
+        // Blindage
+        if (ligne<1)
+        {
+            ligne = 1;
+        }
+        if (ligne>8)
+        {
+            ligne = 8;
+        }
+
+        if (colonne<2)
+        {
+            colonne = 2;
+        }
+        if (colonne>16)
+        {
+            colonne = 16;
+        }
 
         // Si on a appuyé sur une touche du clavier
         if (pConsole->isKeyboardPressed())
@@ -238,13 +213,12 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col)
                 ligne++;
                 break;
             case 'q':
-                colonne--;
+                colonne = colonne-2;
                 break;
             case 'd':
-                colonne ++;
+                colonne = colonne+2;
                 break;
             default:
-                quit = true;
                 break;
             }
 
@@ -255,102 +229,7 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col)
 
     // Libère la mémoire du pointeur !
     Console::deleteInstance();
-//bool quit = false;
-    //Console* pConsole = NULL;
 
-    // Alloue la mémoire du pointeur
-    //pConsole = Console::getInstance();
-    // Affichage avec gotoligcol et couleur
-    //pConsole->gotoLigCol(m_lig,m_col);
-
-    //pConsole->setColor(COLOR_DEFAULT);
-
-    // Boucle événementielle
-//    while (!quit)
-//    {
-        // Si on a appuyé sur une touche du clavier
-//        if (pConsole->isKeyboardPressed())
-//        {
-            // Récupère le code ASCII de la touche
-//            char key = pConsole->getInputKey();
-
-<<<<<<< HEAD
-            //switch(dep)
-            //{
-            //case 'q':
-                ///m_col--;
-                //pConsole->gotoLigCol(m_lig,m_col--);
-                //break;
-
-            //case 'd':
-                ///m_col++;
-                //pConsole->gotoLigCol(m_lig,m_col++);
-                //break;
-
-            //case 'z':
-=======
-            // Choix
-            switch(dep)
-            {
-            // Si on appuie sur la touche "q"
-            case 'q':
-                ///m_col--;
-                pConsole->gotoLigCol(m_lig,m_col-2);
-                break;
-
-            // Si on appuie sur la touche "d"
-            case 'd':
-                ///m_col++;
-                pConsole->gotoLigCol(m_lig,m_col+2);
-                break;
-
-            // Si on appuie sur la touche "z"
-            case 'z':
->>>>>>> origin/master
-                ///m_lig--;
-                ////pConsole->gotoLigCol(m_lig--,m_col);
-                //break;
-
-<<<<<<< HEAD
-            //case's':
-=======
-            // Si on appuie sur la touche "s"
-            case's':
->>>>>>> origin/master
-                ///m_lig++;
-                //pConsole->gotoLigCol(m_lig++,m_col);
-                //break;
-
-            //default :
-                //cout<<"ERROR"<<endl;
-            //}
-             //system("cls");
-
-//             this->Display();
-
-
-            ///q est la touche directionnelle permettant daller vers la gauche
-            /*if (key==115)/// code ascii de la lettre q
-                pConsole->gotoLigCol(x-1,y);
-            if (key==122)/// code ascii de la lettre d
-                pConsole->gotoLigCol(x+1,y);
-             if (key==113)/// code ascii de la lettre z
-                pConsole->gotoLigCol(x,y+1);
-            if (key==100)/// code asciide la lettre s
-                pConsole->gotoLigCol(x,y-1);
-            //if (key==27)
-                 //pConsole->gotoLigCol(x,y);
-                 //std::cout<< "N";*/
-
-//            if (key == 'a' ) // 27 = touche escape
-//            {
-//                quit = true;
-//            }
-        //}
-//    }
-
-    // Libère la mémoire du pointeur !
-//    Console::deleteInstance();
 }
 
 //Méthodes affichant des pages de jeu
