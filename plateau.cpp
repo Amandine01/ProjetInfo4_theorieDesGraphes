@@ -98,6 +98,9 @@ void Plateau::Bouclejeu()
                 this->Display();
                 cout<<"Le premier joueur joue (pions noirs joue)"<<endl;
                 ///fonction Poser pion
+                this->poser_pion(turn);
+                 system("cls");
+                this->Display();
             }
         }
 
@@ -117,7 +120,9 @@ void Plateau::Bouclejeu()
                 this->Display();
                 cout<<"Le deuxieme joueur joue (pions blancs joue)"<<endl;
                 ///fonction Poser pion
-
+                this->poser_pion(turn);
+                 system("cls");
+                this->Display();
             }
         }
         turn++;
@@ -129,7 +134,7 @@ void Plateau::Bouclejeu()
 
 void Plateau::case_possible (int turn)
 {
-    if (turn%2==1)
+    if (turn%2==0)
     {
         for(int i=0; i<8; i++)
         {
@@ -167,7 +172,7 @@ void Plateau::case_possible (int turn)
 
     }
 
-    if (turn%2==0)
+    if (turn%2==1)
     {
         for(int i=0; i<8; i++)
         {
@@ -204,7 +209,68 @@ void Plateau::case_possible (int turn)
         }
     }
 }
+void Plateau::poser_pion(int turn)
+{
+    Console* pConsole = NULL;
+         // Alloue la mémoire du pointeur
+    pConsole = Console::getInstance();
 
+    // Affichage avec gotoligcol et couleur
+    pConsole->gotoLigCol(20, 0);
+    char c;
+
+        for(int i=0; i<8; i++)
+        {
+            for(int j=0; j<8; j++)
+            {
+                if (tab[i][j]=='X')
+                 {
+                    if (turn%2==0)//JOUEUR NOIR
+                    {
+                        if (pConsole->isKeyboardPressed())
+                       {
+
+                           c = pConsole->getInputKey();
+                           switch(c)
+                          {
+                              case 'p':
+                              tab[i][j] = 'N';
+                              break;
+                              default:
+                             break;
+                           }
+
+                         }
+
+                       }
+
+                       if (turn%2==1)// JOUEUR BLANC
+                      {
+                        if (pConsole->isKeyboardPressed())
+                        {
+
+                           c = pConsole->getInputKey();
+                           switch(c)
+                           {
+                             case 'p':
+                            tab[i][j] = 'B';
+                             break;
+                             default:
+                             break;
+                           }
+
+                         }
+
+                       }
+
+
+             }
+            }
+
+        }
+         // Libère la mémoire du pointeur !
+   // Console::deleteInstance();
+}
 void Plateau::menu_jeu()
 {
     int m_choix_menu;

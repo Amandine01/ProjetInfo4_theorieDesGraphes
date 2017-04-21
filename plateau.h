@@ -32,6 +32,7 @@ public:
     void Display();
     void Bouclejeu();
     void case_possible (int turn);
+    void poser_pion(int turn);
     ///accesseurs
 
     int getLongueur_plateau();
