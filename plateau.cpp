@@ -7,6 +7,7 @@
 #include "console.h"
 #include <cstdio>
 #include <fstream>
+#include <map>
 
 
 using namespace std;
@@ -134,7 +135,8 @@ void Plateau::Bouclejeu()
 
 void Plateau::case_possible (int turn)
 {
-    if (turn%2==0)
+    pair<int,int> coordonnees_possibles;
+    if (turn%2==0)/// joueur noir
     {
         for(int i=0; i<8; i++)
         {
@@ -144,35 +146,54 @@ void Plateau::case_possible (int turn)
                 {
                     if ((tab[i+1][j]=='N')&&(tab[i-1][j]=='-'))
                         tab[i-1][j]='X';
+                        coordonnees_possibles.first=j;
+                        coordonnees_possibles.second=i-1;
 
                     if ((tab[i+1][j]=='-')&&(tab[i-1][j]=='N'))
                         tab[i+1][j]='X';
-
+                        coordonnees_possibles.first=j;
+                        coordonnees_possibles.second=i+1;
 
                     if ((tab[i-1][j-1]=='-')&&(tab[i+1][j+1]=='N'))
                         tab[i-1][j-1]='X';
+                        coordonnees_possibles.first=j-1;
+                        coordonnees_possibles.second=i-1;
 
                     if  ((tab[i+1][j+1]=='-')&&(tab[i-1][j-1]=='N'))
                         tab[i+1][j+1]='X';
+                        coordonnees_possibles.first=j+1;
+                        coordonnees_possibles.second=i+1;
 
                     if ((tab[i+1][j-1]=='-')&&(tab[i-1][j+1]=='N'))
                         tab[i+1][j-1]='X';
+                        coordonnees_possibles.first=j-1;
+                        coordonnees_possibles.second=i+1;
 
                     if ((tab[i-1][j+1]=='-')&&(tab[i+1][j-1]=='N'))
                         tab[i-1][j+1]='X';
+                        coordonnees_possibles.first=j+1;
+                        coordonnees_possibles.second=i-1;
 
                     if ((tab[i][j-1]=='-')&&(tab[i][j+1]=='N'))
                         tab[i][j-1]='X';
+                        coordonnees_possibles.first=j-1;
+                        coordonnees_possibles.second=i;
 
                     if ((tab[i][j+1]=='-')&&(tab[i][j-1]=='N'))
                         tab[i][j+1]='X';
+                        coordonnees_possibles.first=j+1;
+                        coordonnees_possibles.second=i;
+
                 }
+
+             // cout<<"("<<coordonnees_possibles.first<<"."<<coordonnees_possibles.second<<")"<<endl;
             }
         }
 
+
     }
 
-    if (turn%2==1)
+    if (turn%2==1)///joueur blanc
     {
         for(int i=0; i<8; i++)
         {
@@ -182,32 +203,49 @@ void Plateau::case_possible (int turn)
                 {
                     if ((tab[i+1][j]=='B')&&(tab[i-1][j]=='-'))
                         tab[i-1][j]='X';
+                        coordonnees_possibles.first=j;
+                        coordonnees_possibles.second=i-1;
 
                     if ((tab[i+1][j]=='-')&&(tab[i-1][j]=='B'))
                         tab[i+1][j]='X';
-
+                         coordonnees_possibles.first=j;
+                        coordonnees_possibles.second=i+1;
 
                     if ((tab[i-1][j-1]=='-')&&(tab[i+1][j+1]=='B'))
                         tab[i-1][j-1]='X';
+                         coordonnees_possibles.first=j-1;
+                        coordonnees_possibles.second=i-1;
 
                     if  ((tab[i+1][j+1]=='-')&&(tab[i-1][j-1]=='B'))
                         tab[i+1][j+1]='X';
+                         coordonnees_possibles.first=j+1;
+                        coordonnees_possibles.second=i+1;
 
                     if ((tab[i+1][j-1]=='-')&&(tab[i-1][j+1]=='B'))
                         tab[i+1][j-1]='X';
+                        coordonnees_possibles.first=j-1;
+                        coordonnees_possibles.second=i+1;
 
                     if ((tab[i-1][j+1]=='-')&&(tab[i+1][j-1]=='B'))
                         tab[i-1][j+1]='X';
+                         coordonnees_possibles.first=j+1;
+                        coordonnees_possibles.second=i-1;
 
                     if ((tab[i][j-1]=='-')&&(tab[i][j+1]=='B'))
                         tab[i][j-1]='X';
+                         coordonnees_possibles.first=j-1;
+                        coordonnees_possibles.second=i;
 
                     if ((tab[i][j+1]=='-')&&(tab[i][j-1]=='B'))
                         tab[i][j+1]='X';
+                         coordonnees_possibles.first=j+1;
+                        coordonnees_possibles.second=i;
                 }
             }
+
         }
     }
+
 }
 void Plateau::poser_pion(int turn)
 {
@@ -216,7 +254,7 @@ void Plateau::poser_pion(int turn)
     pConsole = Console::getInstance();
 
     // Affichage avec gotoligcol et couleur
-    pConsole->gotoLigCol(20, 0);
+    //pConsole->gotoLigCol(20, 0);
     char c;
 
         for(int i=0; i<8; i++)
@@ -225,6 +263,7 @@ void Plateau::poser_pion(int turn)
             {
                 if (tab[i][j]=='X')
                  {
+                     pConsole->gotoLigCol(i, j);
                     if (turn%2==0)//JOUEUR NOIR
                     {
                         if (pConsole->isKeyboardPressed())
