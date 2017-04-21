@@ -8,6 +8,7 @@
 #include <cstdio>
 #include <fstream>
 #include <map>
+#include "conio.h"
 
 
 using namespace std;
@@ -68,7 +69,8 @@ void Plateau::Bouclejeu()
 {
     // Afficher le plateau
     this->Display();
-    int turn=1;
+    int turn=0;
+
 
     // Si quit est faux
     bool quit = false;
@@ -93,15 +95,21 @@ void Plateau::Bouclejeu()
                 this->case_possible(turn);
                 system("cls");
 
+
                 this->Display();
                 char dep=pConsole->getInputKey();
-                this->deplacer_curseur(dep, m_lig, m_col);
+                this->deplacer_curseur(dep, m_lig, m_col,turn);
+                system("cls");
+                ///this->effacer_case_possible(turn);
                 this->Display();
-                cout<<"Le premier joueur joue (pions noirs joue)"<<endl;
-                ///fonction Poser pion
-                this->poser_pion(turn);
-                 system("cls");
-                this->Display();
+                ///this->comptage_points();
+//                 pConsole->gotoLigCol(10, 0);
+//
+//                    pConsole->setColor(COLOR_DEFAULT);
+//                cout<<"Le premier joueur joue (pions noirs joue). Les X representent les cases où vous pouvez poser votre pion."<<endl;
+                //this->poser_pion(turn);
+                //system("cls");
+                //this->Display();
             }
         }
 
@@ -117,19 +125,23 @@ void Plateau::Bouclejeu()
 
                 this->Display();
                 char dep=pConsole->getInputKey();
-                this->deplacer_curseur(dep, m_lig, m_col);
+                this->deplacer_curseur(dep, m_lig, m_col,turn);
+                system("cls");
+                ///this->effacer_case_possible(turn);
                 this->Display();
-                cout<<"Le deuxieme joueur joue (pions blancs joue)"<<endl;
-                ///fonction Poser pion
-                this->poser_pion(turn);
-                 system("cls");
-                this->Display();
+                ///this->comptage_points();
+                //cout<<"Le deuxieme joueur joue (pions blancs joue)"<<endl;
+                //this->poser_pion(turn);
+                //system("cls");
+                //this->Display();
             }
         }
         turn++;
     }
 
     Console::deleteInstance();
+
+
 
 }
 
@@ -146,47 +158,47 @@ void Plateau::case_possible (int turn)
                 {
                     if ((tab[i+1][j]=='N')&&(tab[i-1][j]=='-'))
                         tab[i-1][j]='X';
-                        coordonnees_possibles.first=j;
-                        coordonnees_possibles.second=i-1;
+                    coordonnees_possibles.first=j;
+                    coordonnees_possibles.second=i-1;
 
                     if ((tab[i+1][j]=='-')&&(tab[i-1][j]=='N'))
                         tab[i+1][j]='X';
-                        coordonnees_possibles.first=j;
-                        coordonnees_possibles.second=i+1;
+                    coordonnees_possibles.first=j;
+                    coordonnees_possibles.second=i+1;
 
                     if ((tab[i-1][j-1]=='-')&&(tab[i+1][j+1]=='N'))
                         tab[i-1][j-1]='X';
-                        coordonnees_possibles.first=j-1;
-                        coordonnees_possibles.second=i-1;
+                    coordonnees_possibles.first=j-1;
+                    coordonnees_possibles.second=i-1;
 
                     if  ((tab[i+1][j+1]=='-')&&(tab[i-1][j-1]=='N'))
                         tab[i+1][j+1]='X';
-                        coordonnees_possibles.first=j+1;
-                        coordonnees_possibles.second=i+1;
+                    coordonnees_possibles.first=j+1;
+                    coordonnees_possibles.second=i+1;
 
                     if ((tab[i+1][j-1]=='-')&&(tab[i-1][j+1]=='N'))
                         tab[i+1][j-1]='X';
-                        coordonnees_possibles.first=j-1;
-                        coordonnees_possibles.second=i+1;
+                    coordonnees_possibles.first=j-1;
+                    coordonnees_possibles.second=i+1;
 
                     if ((tab[i-1][j+1]=='-')&&(tab[i+1][j-1]=='N'))
                         tab[i-1][j+1]='X';
-                        coordonnees_possibles.first=j+1;
-                        coordonnees_possibles.second=i-1;
+                    coordonnees_possibles.first=j+1;
+                    coordonnees_possibles.second=i-1;
 
                     if ((tab[i][j-1]=='-')&&(tab[i][j+1]=='N'))
                         tab[i][j-1]='X';
-                        coordonnees_possibles.first=j-1;
-                        coordonnees_possibles.second=i;
+                    coordonnees_possibles.first=j-1;
+                    coordonnees_possibles.second=i;
 
                     if ((tab[i][j+1]=='-')&&(tab[i][j-1]=='N'))
                         tab[i][j+1]='X';
-                        coordonnees_possibles.first=j+1;
-                        coordonnees_possibles.second=i;
+                    coordonnees_possibles.first=j+1;
+                    coordonnees_possibles.second=i;
 
                 }
 
-             // cout<<"("<<coordonnees_possibles.first<<"."<<coordonnees_possibles.second<<")"<<endl;
+                // cout<<"("<<coordonnees_possibles.first<<"."<<coordonnees_possibles.second<<")"<<endl;
             }
         }
 
@@ -203,43 +215,43 @@ void Plateau::case_possible (int turn)
                 {
                     if ((tab[i+1][j]=='B')&&(tab[i-1][j]=='-'))
                         tab[i-1][j]='X';
-                        coordonnees_possibles.first=j;
-                        coordonnees_possibles.second=i-1;
+                    coordonnees_possibles.first=j;
+                    coordonnees_possibles.second=i-1;
 
                     if ((tab[i+1][j]=='-')&&(tab[i-1][j]=='B'))
                         tab[i+1][j]='X';
-                         coordonnees_possibles.first=j;
-                        coordonnees_possibles.second=i+1;
+                    coordonnees_possibles.first=j;
+                    coordonnees_possibles.second=i+1;
 
                     if ((tab[i-1][j-1]=='-')&&(tab[i+1][j+1]=='B'))
                         tab[i-1][j-1]='X';
-                         coordonnees_possibles.first=j-1;
-                        coordonnees_possibles.second=i-1;
+                    coordonnees_possibles.first=j-1;
+                    coordonnees_possibles.second=i-1;
 
                     if  ((tab[i+1][j+1]=='-')&&(tab[i-1][j-1]=='B'))
                         tab[i+1][j+1]='X';
-                         coordonnees_possibles.first=j+1;
-                        coordonnees_possibles.second=i+1;
+                    coordonnees_possibles.first=j+1;
+                    coordonnees_possibles.second=i+1;
 
                     if ((tab[i+1][j-1]=='-')&&(tab[i-1][j+1]=='B'))
                         tab[i+1][j-1]='X';
-                        coordonnees_possibles.first=j-1;
-                        coordonnees_possibles.second=i+1;
+                    coordonnees_possibles.first=j-1;
+                    coordonnees_possibles.second=i+1;
 
                     if ((tab[i-1][j+1]=='-')&&(tab[i+1][j-1]=='B'))
                         tab[i-1][j+1]='X';
-                         coordonnees_possibles.first=j+1;
-                        coordonnees_possibles.second=i-1;
+                    coordonnees_possibles.first=j+1;
+                    coordonnees_possibles.second=i-1;
 
                     if ((tab[i][j-1]=='-')&&(tab[i][j+1]=='B'))
                         tab[i][j-1]='X';
-                         coordonnees_possibles.first=j-1;
-                        coordonnees_possibles.second=i;
+                    coordonnees_possibles.first=j-1;
+                    coordonnees_possibles.second=i;
 
                     if ((tab[i][j+1]=='-')&&(tab[i][j-1]=='B'))
                         tab[i][j+1]='X';
-                         coordonnees_possibles.first=j+1;
-                        coordonnees_possibles.second=i;
+                    coordonnees_possibles.first=j+1;
+                    coordonnees_possibles.second=i;
                 }
             }
 
@@ -247,94 +259,195 @@ void Plateau::case_possible (int turn)
     }
 
 }
-void Plateau::poser_pion(int turn)
+void Plateau::poser_pion(int turn,int ligne, int colonne)
 {
     Console* pConsole = NULL;
-         // Alloue la mémoire du pointeur
+    // Alloue la mémoire du pointeur
     pConsole = Console::getInstance();
 
     // Affichage avec gotoligcol et couleur
     //pConsole->gotoLigCol(20, 0);
     char c;
 
-        for(int i=0; i<8; i++)
-        {
-            for(int j=0; j<8; j++)
-            {
-                if (tab[i][j]=='X')
-                 {
-                     pConsole->gotoLigCol(i, j);
-                    if (turn%2==0)//JOUEUR NOIR
-                    {
-                        if (pConsole->isKeyboardPressed())
-                       {
+    if (turn%2==0)///Joueur noir
+    {
+        tab[ligne][colonne]='N' ;
 
-                           c = pConsole->getInputKey();
-                           switch(c)
-                          {
-                              case 'p':
-                              tab[i][j] = 'N';
-                              break;
-                              default:
-                             break;
-                           }
+//        else
+//        {
+//            system("cls");
+//            cout<<"Vous ne pouvez pas posez de pion ici";
+//            if (getch()==27)
+//            {
+//                system("cls");
+//                this->Display();
+//                d=1;
+//                return d;
+//
+//            }
+//
+//        }
+    }
 
-                         }
-
-                       }
-
-                       if (turn%2==1)// JOUEUR BLANC
-                      {
-                        if (pConsole->isKeyboardPressed())
-                        {
-
-                           c = pConsole->getInputKey();
-                           switch(c)
-                           {
-                             case 'p':
-                            tab[i][j] = 'B';
-                             break;
-                             default:
-                             break;
-                           }
-
-                         }
-
-                       }
+    if (turn%2==1)///Joueur blanc
+    {
+        tab[ligne][colonne]='B' ;
 
 
-             }
-            }
+//        else
+//        {
+//            system("cls");
+//            cout<<"Vous ne pouvez pas posez de pion ici";
+//            if (getch()==27)
+//            {
+//                system("cls");
+//                this->Display();
+//                d=1;
+//                return d;
+//            }
+//
+//
+//
+//        }
+    }
 
-        }
-         // Libère la mémoire du pointeur !
-   // Console::deleteInstance();
+//        for(int i=0; i<8; i++)
+//        {
+//            for(int j=0; j<8; j++)
+//            {
+//                if (tab[i][j]=='X')
+//                 {
+//                     pConsole->gotoLigCol(i, j);
+//                    if (turn%2==0)//JOUEUR NOIR
+//                    {
+//                        if (pConsole->isKeyboardPressed())
+//                       {
+//
+//                           c = pConsole->getInputKey();
+//                           switch(c)
+//                          {
+//                              case 'p':
+//                              tab[i][j] = 'N';
+//                              break;
+//                              default:
+//                             break;
+//                           }
+//
+//                         }
+//
+//                       }
+//
+//                       if (turn%2==1)// JOUEUR BLANC
+//                      {
+//                        if (pConsole->isKeyboardPressed())
+//                        {
+//
+//                           c = pConsole->getInputKey();
+//                           switch(c)
+//                           {
+//                             case 'p':
+//                            tab[i][j] = 'B';
+//                             break;
+//                             default:
+//                             break;
+//                           }
+//
+//                         }
+//
+//                       }
+//
+//
+//             }
+//            }
+//
+//        }
+    // Libère la mémoire du pointeur !
+    // Console::deleteInstance();
 }
 void Plateau::menu_jeu()
 {
     int m_choix_menu;
+    int a=1;
+
+
+while (a!=2)
+{
     ///Affiche le menu
     std::cout << "1- Pour jouer a deux joueur" << std::endl;
     std::cout << "2- Pour jouer contre l'ordinateur" << std::endl;
-    std::cout << "3- Pour connaitre les regles du jeu" << std::endl;
-    std::cout << "4- Quitter" << std::endl << std::endl;
+    std::cout << "3- Pour charger une partie" <<endl;
+    std::cout << "4- Pour connaitre les regles du jeu" << std::endl;
+    std::cout << "5- Quitter" << std::endl << std::endl;
     std::cout << "Rentrer la valeur de votre choix : ";
     //Rentre la valeur voulu par le menu
     std::cin >> m_choix_menu;
     std::cout << std::endl << std::endl;
-
-    //applique le choix rentree
-    if(m_choix_menu == 1)
+    switch(m_choix_menu)
     {
+    case 1:
         system("cls");
         Plateau::Bouclejeu();
-    }
-    if(m_choix_menu == 2)
+        break;
+    case 2:
     {
+        system("cls");
         //Message d'erreur
         std::cout << "Pas implemente encore" << std::endl << std::endl;
         Plateau::Bouclejeu();
+        break;
     }
+
+    case 3:
+    {
+        system("cls");
+        cout<<"charger une partie "<<endl;
+        break;
+    }
+
+    case 4:
+    {
+        system("cls");
+        cout<<"Affichage des regles. Appuyez sur la touche espace pour revenir au menu"<<endl;
+        if (getch()==27)
+        {
+            system("cls");
+            a=1;
+            m_choix_menu=0;
+        }
+        break;
+
+    }
+
+    case 5:
+    {
+        system("cls");
+        if (getch()==27)
+        {
+            system("cls");
+            a=2;
+            m_choix_menu=0;
+        }
+        break;
+    }
+
+    default :
+        {
+            system("cls");
+            cout<<"Cette option n'existe pas. Saisissez espace pour revenir au menu"<<endl;
+            if (getch()==27)
+            {
+                system("cls");
+                a=1;
+                m_choix_menu=0;
+            }
+        }
+}
+
+
+}
+
+
+
 
 //    if(m_choix_menu == 4){
 //        this->pageAccueil();
@@ -355,13 +468,14 @@ void Plateau::menu_jeu()
 
 
 
-void Plateau::deplacer_curseur(char dep, int m_lig, int m_col)
+void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
 {
     // Ressources
     bool quit = false;
     Console* pConsole = NULL;
     int ligne=0, colonne=0;
     char c = 0;
+    int d=1;
 
     // Alloue la mémoire du pointeur
     pConsole = Console::getInstance();
@@ -372,7 +486,7 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col)
     pConsole->setColor(COLOR_DEFAULT);
 
     // Boucle événementielle
-    while (!quit)
+    while (d!=2)
     {
 
         // Blindage
@@ -415,6 +529,19 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col)
             case 'd':
                 colonne = colonne+2;
                 break;
+            case 'p':
+                if (tab[ligne][colonne-2]!='X')
+                {
+                    cout<<"Vous ne pouvez pas posez de pion ici";
+                    d=1;
+                }
+                else
+                {
+                    this->poser_pion(turn,ligne,colonne);
+                    d=2;
+                }
+
+                ///pConsole->gotoLigCol(ligne, colonne);
             default:
                 break;
             }
@@ -462,14 +589,6 @@ void Plateau::pageAccueil()
     ///system("cls");
 }
 
-void Plateau::pageVictoire()
-{
-    std::cout << "Bien joue!" << std::endl << std::endl;
-    ///Affiche la page de victoire
-    ///this->DetectionTouche();
-    system("cls");
-}
-
 void Plateau::pageSortie()
 {
     std::cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << std::endl << std::endl;
@@ -487,5 +606,39 @@ void Plateau::pageSortie()
     ///Affiche la page de victoire
     ///this->DetectionTouche();
     system("cls");
+}
+
+void Plateau::comptage_points()
+{
+    int points_noir=0;
+    int points_blanc=0;
+    int difference1=0;
+    int difference2=0;
+    for (int i=0; i<8; i++)
+    {
+        for (int j=0; j<8; j++)
+        {
+            if (tab[i][j]=='B')
+            {
+                points_blanc++;
+            }
+            if (tab[i][j]=='N')
+            {
+                points_noir++;
+            }
+        }
+    }
+    difference1=points_blanc-points_noir;
+    difference2=points_noir-points_blanc;
+    cout<<"Le joueur noir a "<<points_noir<<"points."<<endl;
+    cout<<"Le joueur blanc a "<<points_blanc<<"points."<<endl;
+    if (points_noir<points_blanc)
+    {
+        cout<<"Le joueur blanc a donc gagné de "<<difference1<<"points."<<endl;
+    }
+    if (points_noir>points_blanc)
+    {
+        cout<<"Le joueur noir a donc gagné de "<<difference2<<"points."<<endl;
+    }
 }
 

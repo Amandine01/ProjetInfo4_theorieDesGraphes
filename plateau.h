@@ -24,7 +24,7 @@ public:
     void afficher_grille_jeu();
     void initialiser_plateau();
     void menu_jeu();
-    void deplacer_curseur(char dep, int lig, int col);
+    void deplacer_curseur(char dep, int lig, int col, int turn);
     void enregistrer_partie();
     void pageAccueil();
     void pageSortie();
@@ -32,7 +32,8 @@ public:
     void Display();
     void Bouclejeu();
     void case_possible (int turn);
-    void poser_pion(int turn);
+    void poser_pion(int turn,int ligne, int colonne);
+    void comptage_points();
     ///accesseurs
 
     int getLongueur_plateau();
