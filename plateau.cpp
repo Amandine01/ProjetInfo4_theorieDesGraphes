@@ -94,13 +94,11 @@ void Plateau::Bouclejeu()
             {
                 this->case_possible(turn);
                 system("cls");
-
-
                 this->Display();
                 char dep=pConsole->getInputKey();
                 this->deplacer_curseur(dep, m_lig, m_col,turn);
                 system("cls");
-                ///this->effacer_case_possible(turn);
+                this->effacer_case_possible();
                 this->Display();
                 ///this->comptage_points();
 //                 pConsole->gotoLigCol(10, 0);
@@ -110,6 +108,7 @@ void Plateau::Bouclejeu()
                 //this->poser_pion(turn);
                 //system("cls");
                 //this->Display();
+                turn++;
             }
         }
 
@@ -127,16 +126,16 @@ void Plateau::Bouclejeu()
                 char dep=pConsole->getInputKey();
                 this->deplacer_curseur(dep, m_lig, m_col,turn);
                 system("cls");
-                ///this->effacer_case_possible(turn);
+                this->effacer_case_possible();
                 this->Display();
                 ///this->comptage_points();
                 //cout<<"Le deuxieme joueur joue (pions blancs joue)"<<endl;
                 //this->poser_pion(turn);
                 //system("cls");
                 //this->Display();
+                turn++;
             }
         }
-        turn++;
     }
 
     Console::deleteInstance();
@@ -148,6 +147,7 @@ void Plateau::Bouclejeu()
 void Plateau::case_possible (int turn)
 {
     pair<int,int> coordonnees_possibles;
+
     if (turn%2==0)/// joueur noir
     {
         for(int i=0; i<8; i++)
@@ -259,6 +259,21 @@ void Plateau::case_possible (int turn)
     }
 
 }
+
+void Plateau::effacer_case_possible()
+{
+    for(int i=0; i<8; i++)
+        {
+            for(int j=0; j<8; j++)
+            {
+                if (tab[i][j]=='X')
+                {
+                    tab[i][j]='-';
+                }
+            }
+        }
+}
+
 void Plateau::poser_pion(int turn,int ligne, int colonne)
 {
     Console* pConsole = NULL;
@@ -271,44 +286,12 @@ void Plateau::poser_pion(int turn,int ligne, int colonne)
 
     if (turn%2==0)///Joueur noir
     {
-        tab[ligne][colonne]='N' ;
-
-//        else
-//        {
-//            system("cls");
-//            cout<<"Vous ne pouvez pas posez de pion ici";
-//            if (getch()==27)
-//            {
-//                system("cls");
-//                this->Display();
-//                d=1;
-//                return d;
-//
-//            }
-//
-//        }
+        tab[ligne-1][(colonne-2)/2]='N' ;
     }
 
     if (turn%2==1)///Joueur blanc
     {
-        tab[ligne][colonne]='B' ;
-
-
-//        else
-//        {
-//            system("cls");
-//            cout<<"Vous ne pouvez pas posez de pion ici";
-//            if (getch()==27)
-//            {
-//                system("cls");
-//                this->Display();
-//                d=1;
-//                return d;
-//            }
-//
-//
-//
-//        }
+        tab[ligne-1][(colonne-2)/2]='B' ;
     }
 
 //        for(int i=0; i<8; i++)
@@ -364,12 +347,13 @@ void Plateau::poser_pion(int turn,int ligne, int colonne)
     // Libère la mémoire du pointeur !
     // Console::deleteInstance();
 }
+
+///void Plateau::retournement_pion
+
 void Plateau::menu_jeu()
 {
     int m_choix_menu;
     int a=1;
-
-
 while (a!=2)
 {
     ///Affiche le menu
@@ -445,24 +429,6 @@ while (a!=2)
 
 
 }
-
-
-
-
-//    if(m_choix_menu == 4){
-//        this->pageAccueil();
-//    }
-//    else{
-//        system("cls");
-//        std::cout << "Votre choix n'existe pas" << std::endl;
-//        //inserer la detection de touche
-//    }
-//
-//    system("cls");
-//    std::cout << "lejeu se lance";
-//    if(m_choix_menu == 5){
-//            this->pageSortie();
-//    }
 }
 
 
@@ -476,6 +442,7 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
     int ligne=0, colonne=0;
     char c = 0;
     int d=1;
+    int v=0;
 
     // Alloue la mémoire du pointeur
     pConsole = Console::getInstance();
@@ -503,9 +470,9 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
         {
             colonne = 2;
         }
-        if (colonne>16)
+        if (colonne>18)
         {
-            colonne = 16;
+            colonne = 18;
         }
 
         // Si on a appuyé sur une touche du clavier
@@ -530,9 +497,16 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
                 colonne = colonne+2;
                 break;
             case 'p':
-                if (tab[ligne][colonne-2]!='X')
+                if (tab[ligne-1][(colonne-2)/2]!='X')
                 {
-                    cout<<"Vous ne pouvez pas posez de pion ici";
+                    system("cls");
+                    cout<<"Vous ne pouvez pas posez de pion ici. Appuyez sur espace pour continuer";
+                    cin>>v;
+                    if (v==27)
+                    {
+                        system("cls");
+                        this->Display();
+                    }
                     d=1;
                 }
                 else

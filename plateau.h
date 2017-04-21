@@ -32,6 +32,7 @@ public:
     void Display();
     void Bouclejeu();
     void case_possible (int turn);
+    void effacer_case_possible();
     void poser_pion(int turn,int ligne, int colonne);
     void comptage_points();
     ///accesseurs
