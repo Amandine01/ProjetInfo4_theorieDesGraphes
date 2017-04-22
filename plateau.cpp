@@ -56,10 +56,27 @@ void Plateau::Display()
         cout<<i+1<<" ";
         for(int j=0; j<8; j++)
         {
-            pConsole->setColor(COLOR_GREEN);
-            cout << tab[i][j] << " " ;
+            if(tab[i][j] == 'N')
+            {
+                pConsole->setColor(COLOR_BLACK);
+                cout << tab[i][j] << " " ;
+            }
+            else
+            {
+                if(tab[i][j] == 'B')
+                {
+                    pConsole->setColor(COLOR_WHITE);
+                    cout << tab[i][j] << " " ;
+                }
+                else
+                {
+                     pConsole->setColor(COLOR_GREEN);
+                    cout << tab[i][j] << " " ;
+                }
+
+            }
         }
-        pConsole->setColor(COLOR_WHITE);
+        pConsole->setColor(COLOR_DEFAULT);
         cout<<endl;
     }
 
@@ -547,7 +564,7 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
             case 'd':
                 colonne = colonne+2;
                 break;
-            case 'p':
+            case 13:
                 if (tab[ligne-1][(colonne-2)/2]!='X')
                 {
                     system("cls");
