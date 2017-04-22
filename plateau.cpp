@@ -509,13 +509,13 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
     Console* pConsole = NULL;
     int ligne=0, colonne=0;
     char c = 0;
-    int d=1;
-    int v=0;
+    int d = 1;
+    int v = 1;
 
     // Alloue la mémoire du pointeur
     pConsole = Console::getInstance();
 
-    // Affichage avec gotoligcol et couleur
+    // Affichage avec gotoligcol
     pConsole->gotoLigCol(20, 0);
 
     pConsole->setColor(COLOR_DEFAULT);
@@ -546,9 +546,7 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
         // Si on a appuyé sur une touche du clavier
         if (pConsole->isKeyboardPressed())
         {
-
             c = pConsole->getInputKey();
-
 
             switch(c)
             {
@@ -568,9 +566,10 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
                 if (tab[ligne-1][(colonne-2)/2]!='X')
                 {
                     system("cls");
-                    cout<<"Vous ne pouvez pas posez de pion ici. Appuyez sur espace pour continuer";
-                    cin>>v;
-                    if (v==27)
+                    pConsole->gotoLigCol(2, 0);
+                    cout << "Vous ne pouvez pas posez de pion ici. Appuyez sur '1' pour continuer.";
+                    cin >> v;
+                    if (v == 1)
                     {
                         system("cls");
                         this->Display();
