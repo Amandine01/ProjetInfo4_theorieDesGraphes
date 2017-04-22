@@ -43,23 +43,23 @@ Plateau::~Plateau()
 void Plateau::Display()
 {
     /// Ressources
-//    Console* pConsole;
+    Console* pConsole;
 
     /// Affichage tableau
     // Afficher les lettres
-//    pConsole->setColor(COLOR_RED);
+    pConsole->setColor(COLOR_RED);
     cout<<"  a b c d e f g h"<<endl;
     for(int i=0; i<8; i++)
     {
         // Afficher les chiffres
-//        pConsole->setColor(COLOR_RED);
+        pConsole->setColor(COLOR_RED);
         cout<<i+1<<" ";
         for(int j=0; j<8; j++)
         {
-//            pConsole->setColor(COLOR_GREEN);
+            pConsole->setColor(COLOR_GREEN);
             cout << tab[i][j] << " " ;
         }
-//        pConsole->setColor(COLOR_WHITE);
+        pConsole->setColor(COLOR_WHITE);
         cout<<endl;
     }
 
@@ -92,23 +92,49 @@ void Plateau::Bouclejeu()
             ///
             if(pConsole->isKeyboardPressed())
             {
+                // Afficher les croix
                 this->case_possible(turn);
+
+                // Effacer l'ecran
                 system("cls");
+
+                // Afficher le plateau
                 this->Display();
-                char dep=pConsole->getInputKey();
+
+                // Variable deplacement
+                char dep = pConsole->getInputKey();
+
+                // Deplacer le curseur
                 this->deplacer_curseur(dep, m_lig, m_col,turn);
+
+                // Effacer l'ecran
                 system("cls");
+
+                // Effacer cases possibles
                 this->effacer_case_possible();
+
+                // Afficher le plateau
                 this->Display();
+
+                // Afficher le joueur suivant
+                pConsole->gotoLigCol(3,20);
+                cout << "C'est au tour des pions blancs de jouer." << endl;
+                pConsole->gotoLigCol(4,20);
+                cout << "Les X representent les cases ou vous pouvez poser votre pion." << endl;
+                pConsole->gotoLigCol(5,20);
+                cout << "Appuyer sur entree pour valider" << endl;
+
+                // Incrementation de turn
+                turn++;
+
                 ///this->comptage_points();
-//                 pConsole->gotoLigCol(10, 0);
+//              pConsole->gotoLigCol(10, 0);
 //
-//                    pConsole->setColor(COLOR_DEFAULT);
-//                cout<<"Le premier joueur joue (pions noirs joue). Les X representent les cases où vous pouvez poser votre pion."<<endl;
+//              pConsole->setColor(COLOR_DEFAULT);
                 //this->poser_pion(turn);
                 //system("cls");
                 //this->Display();
-                turn++;
+
             }
         }
 
@@ -119,21 +145,46 @@ void Plateau::Bouclejeu()
             if(pConsole->isKeyboardPressed())
             {
 
+                // Afficher les croix
                 this->case_possible(turn);
+
+                // Effacer l'ecran
                 system("cls");
 
+                // Afficher le plateau
                 this->Display();
-                char dep=pConsole->getInputKey();
+
+                // Variable deplacement
+                char dep = pConsole->getInputKey();
+
+                // Deplacer le curseur
                 this->deplacer_curseur(dep, m_lig, m_col,turn);
+
+                // Effacer l'ecran
                 system("cls");
+
+                // Effacer cases possibles
                 this->effacer_case_possible();
+
+                // Afficher le plateau
                 this->Display();
+
+                // Afficher le joueur suivant
+                pConsole->gotoLigCol(4,20);
+                pConsole->gotoLigCol(3,20);
+                cout << "C'est au tour des pions noirs de jouer." << endl;
+                pConsole->gotoLigCol(4,20);
+                cout << "Les X representent les cases ou vous pouvez poser votre pion." << endl;
+                pConsole->gotoLigCol(5,20);
+                cout << "Appuyer sur entree pour valider" << endl;
+
+                // Incrementation de turn
+                turn++;
+
                 ///this->comptage_points();
-                //cout<<"Le deuxieme joueur joue (pions blancs joue)"<<endl;
                 //this->poser_pion(turn);
                 //system("cls");
                 //this->Display();
-                turn++;
             }
         }
     }

@@ -235,3 +235,50 @@
 	<map>
 	"conio.h"
 
+1492715879 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\console.cpp
+	"console.h"
+	<conio.h>
+	<windows.h>
+
+1492715879 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\console.h
+	<iostream>
+
+1492715879 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\joueur.cpp
+	"Joueur.h"
+	"Plateau.h"
+
+1492715879 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\joueur.h
+	"plateau.h"
+
+1492881014 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\plateau.h
+	"pion.h"
+	"console.h"
+	<vector>
+
+1492715879 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\pion.h
+	<string>
+
+1492715879 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\main.cpp
+	<iostream>
+	"pion.h"
+	"plateau.h"
+	<vector>
+	"console.h"
+
+1492715879 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\pion.cpp
+	"pion.h"
+	<string>
+
+1492882293 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\plateau.cpp
+	<vector>
+	"plateau.h"
+	"pion.h"
+	<iostream>
+	<string>
+	<cstdlib>
+	"console.h"
+	<cstdio>
+	<fstream>
+	<map>
+	"conio.h"
+
