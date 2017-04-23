@@ -158,8 +158,7 @@
 1492714223 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\joueur.h
 	"plateau.h"
 
-1492736888 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\plateau.h
-	"pion.h"
+1492938692 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\plateau.h
 	"console.h"
 	<vector>
 
@@ -177,7 +176,7 @@
 	"pion.h"
 	<string>
 
-1492737153 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\plateau.cpp
+1492767485 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\plateau.cpp
 	<vector>
 	"plateau.h"
 	"pion.h"
@@ -187,4 +186,5 @@
 	"console.h"
 	<cstdio>
 	<fstream>
+	<map>
 

@@ -1,6 +1,5 @@
 #ifndef PLATO_H_INCLUDED
 #define PLATO_H_INCLUDED
-#include "pion.h"
 #include "console.h"
 #include <vector>
 
@@ -24,7 +23,7 @@ public:
     void afficher_grille_jeu();
     void initialiser_plateau();
     void menu_jeu();
-    void deplacer_curseur(char dep, int lig, int col);
+    void deplacer_curseur(char dep, int lig, int col, int turn);
     void enregistrer_partie();
     void pageAccueil();
     void pageSortie();
@@ -32,7 +31,16 @@ public:
     void Display();
     void Bouclejeu();
     void case_possible (int turn);
-    void poser_pion(int turn);
+    void effacer_case_possible();
+    void poser_pion(int turn,int ligne, int colonne);
+    void comptage_points();
+    void retournement_pion_blanc (int v, int w);
+    void retournement_pion_noir (int v, int w);
+    void condition_de_fin();
+
+    void poser_pion_IA(int ligne, int colonne);
+    void case_possible_IA();
+    void Bouclejeu_IA();
     ///accesseurs
 
     int getLongueur_plateau();
