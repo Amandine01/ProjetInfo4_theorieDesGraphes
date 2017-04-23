@@ -250,8 +250,7 @@
 1492715879 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\joueur.h
 	"plateau.h"
 
-1492881014 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\plateau.h
-	"pion.h"
+1492939050 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\plateau.h
 	"console.h"
 	<vector>
 
@@ -269,10 +268,9 @@
 	"pion.h"
 	<string>
 
-1492884068 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\plateau.cpp
+1492939050 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\plateau.cpp
 	<vector>
 	"plateau.h"
-	"pion.h"
 	<iostream>
 	<string>
 	<cstdlib>
@@ -281,4 +279,6 @@
 	<fstream>
 	<map>
 	"conio.h"
+	<ctime>
+	<windows.h>
 

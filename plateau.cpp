@@ -8,12 +8,8 @@
 #include <fstream>
 #include <map>
 #include "conio.h"
-<<<<<<< HEAD
 #include <ctime>
 #include <windows.h>
-=======
->>>>>>> origin/master
-
 
 using namespace std;
 ///constructeur plateau
@@ -113,28 +109,11 @@ void Plateau::Bouclejeu()
             ///
             if(pConsole->isKeyboardPressed())
             {
-<<<<<<< HEAD
-
-                this->case_possible(turn);
-                this->condition_de_fin();
-                system("cls");
-                this->Display();
-                char dep=pConsole->getInputKey();
-                this->deplacer_curseur(dep, m_lig, m_col,turn);
-                system("cls");
-                this->effacer_case_possible();
-                this->Display();
-//                 pConsole->gotoLigCol(10, 0);
-//
-//                    pConsole->setColor(COLOR_DEFAULT);
-//                cout<<"Le premier joueur joue (pions noirs joue). Les X representent les cases où vous pouvez poser votre pion."<<endl;
-                //this->poser_pion(turn);
-                //system("cls");
-                //this->Display();
-                turn++;
-=======
                 // Afficher les croix
                 this->case_possible(turn);
+
+                // Condition de fin
+                this->condition_de_fin();
 
                 // Effacer l'ecran
                 system("cls");
@@ -176,7 +155,6 @@ void Plateau::Bouclejeu()
                 //system("cls");
                 //this->Display();
 
->>>>>>> origin/master
             }
         }
 
@@ -189,28 +167,15 @@ void Plateau::Bouclejeu()
 
                 // Afficher les croix
                 this->case_possible(turn);
-<<<<<<< HEAD
+
+                // Conditions de fin
                 this->condition_de_fin();
-=======
 
                 // Effacer l'ecran
->>>>>>> origin/master
                 system("cls");
 
                 // Afficher le plateau
                 this->Display();
-<<<<<<< HEAD
-                char dep=pConsole->getInputKey();
-                this->deplacer_curseur(dep, m_lig, m_col,turn);
-                system("cls");
-                this->effacer_case_possible();
-                this->Display();
-                //cout<<"Le deuxieme joueur joue (pions blancs joue)"<<endl;
-                //this->poser_pion(turn);
-                //system("cls");
-                //this->Display();
-                turn++;
-=======
 
                 // Variable deplacement
                 char dep = pConsole->getInputKey();
@@ -243,7 +208,7 @@ void Plateau::Bouclejeu()
                 //this->poser_pion(turn);
                 //system("cls");
                 //this->Display();
->>>>>>> origin/master
+
             }
         }
     }
@@ -336,6 +301,11 @@ void Plateau::case_possible (int turn)
                     coordonnees_possibles.first=j+1;
                     coordonnees_possibles.second=i;
 >>>>>>> origin/master
+                   else
+//                    {
+//                        system("cls");
+//                        this->comptage_points();
+//                    }
 
                 }
 
