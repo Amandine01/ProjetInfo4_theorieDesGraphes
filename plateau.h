@@ -6,14 +6,12 @@
 class Plateau
 {
 private:
-    //std::vector <Pion> m_plateau;
-    ///
     int m_longueur_plateau;
     int m_largeur_plateau;
     char tab[8][8];
-    ///Console* pConsole;
     int m_lig;
     int m_col;
+
 public:
     ///Constructeur et destructeur
     Plateau();
@@ -34,7 +32,6 @@ public:
     void effacer_case_possible();
     void poser_pion(int turn,int ligne, int colonne);
     void comptage_points();
-<<<<<<< HEAD
     void retournement_pion_blanc (int v, int w);
     void retournement_pion_noir (int v, int w);
     void condition_de_fin();
@@ -42,14 +39,12 @@ public:
     void poser_pion_IA(int ligne, int colonne);
     void case_possible_IA();
     void Bouclejeu_IA();
-=======
->>>>>>> origin/master
-    ///accesseurs
 
+    ///accesseurs
     int getLongueur_plateau();
     int getLargeur_plateau();
-    //Setter
 
+    //Setter
     void setLongueur_plateau(int longueur_plateau);
     void setLargeur_plateau(int largeur_plateau);
 };

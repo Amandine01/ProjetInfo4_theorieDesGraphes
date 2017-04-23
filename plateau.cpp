@@ -44,26 +44,42 @@ Plateau::~Plateau()
 void Plateau::Display()
 {
     /// Ressources
-//    Console* pConsole;
+    Console* pConsole;
 
     /// Affichage tableau
     // Afficher les lettres
-//    pConsole->setColor(COLOR_RED);
+    pConsole->setColor(COLOR_RED);
     cout<<"  a b c d e f g h"<<endl;
     for(int i=0; i<8; i++)
     {
         // Afficher les chiffres
-//        pConsole->setColor(COLOR_RED);
+        pConsole->setColor(COLOR_RED);
         cout<<i+1<<" ";
         for(int j=0; j<8; j++)
         {
-//            pConsole->setColor(COLOR_GREEN);
-            cout << tab[i][j] << " " ;
+            if(tab[i][j] == 'N')
+            {
+                pConsole->setColor(COLOR_BLACK);
+                cout << tab[i][j] << " " ;
+            }
+            else
+            {
+                if(tab[i][j] == 'B')
+                {
+                    pConsole->setColor(COLOR_WHITE);
+                    cout << tab[i][j] << " " ;
+                }
+                else
+                {
+                     pConsole->setColor(COLOR_GREEN);
+                    cout << tab[i][j] << " " ;
+                }
+
+            }
         }
-//        pConsole->setColor(COLOR_WHITE);
+        pConsole->setColor(COLOR_DEFAULT);
         cout<<endl;
     }
-
 }
 
 void Plateau::Bouclejeu()
@@ -88,29 +104,53 @@ void Plateau::Bouclejeu()
 
         if (turn%2==0) ///JOUEUR NOIR
         {
-
-
-            ///
             if(pConsole->isKeyboardPressed())
             {
 
+
+                // Afficher les croix
                 this->case_possible(turn);
+
+                // Conditions de fin
                 this->condition_de_fin();
+
+                // Effacer l'ecran
                 system("cls");
+
+                // Afficher le plateau
                 this->Display();
-                char dep=pConsole->getInputKey();
+
+                // Variable deplacement
+                char dep = pConsole->getInputKey();
+
+                // Deplacer le curseur
                 this->deplacer_curseur(dep, m_lig, m_col,turn);
+
+                // Effacer l'ecran
                 system("cls");
+
+                // Effacer cases possibles
                 this->effacer_case_possible();
+
+                // Afficher le plateau
                 this->Display();
-//                 pConsole->gotoLigCol(10, 0);
-//
-//                    pConsole->setColor(COLOR_DEFAULT);
-//                cout<<"Le premier joueur joue (pions noirs joue). Les X representent les cases où vous pouvez poser votre pion."<<endl;
+
+                // Afficher le joueur suivant
+                pConsole->gotoLigCol(3,20);
+                cout << "C'est au tour des pions blancs de jouer." << endl;
+                pConsole->gotoLigCol(4,20);
+                cout << "Les X representent les cases ou vous pouvez poser votre pion." << endl;
+                pConsole->gotoLigCol(5,20);
+                cout << "Appuyer sur entree pour valider" << endl;
+
+                // Incrementation de turn
+                turn++;
+
+                ///this->comptage_points();
+                //pConsole->gotoLigCol(10, 0);
                 //this->poser_pion(turn);
                 //system("cls");
                 //this->Display();
-                turn++;
             }
         }
 
@@ -120,30 +160,54 @@ void Plateau::Bouclejeu()
 
             if(pConsole->isKeyboardPressed())
             {
-
+                // Afficher les croix
                 this->case_possible(turn);
+
+                // Conditions de fin
                 this->condition_de_fin();
+
+                // Effacer l'ecran
                 system("cls");
 
+                // Afficher le plateau
                 this->Display();
-                char dep=pConsole->getInputKey();
+
+                // Variable deplacement
+                char dep = pConsole->getInputKey();
+
+                // Deplacer le curseur
                 this->deplacer_curseur(dep, m_lig, m_col,turn);
+
+                // Effacer l'ecran
                 system("cls");
+
+                // Effacer cases possibles
                 this->effacer_case_possible();
+
+                // Afficher le plateau
                 this->Display();
-                //cout<<"Le deuxieme joueur joue (pions blancs joue)"<<endl;
+
+                // Afficher le joueur suivant
+                pConsole->gotoLigCol(4,20);
+                pConsole->gotoLigCol(3,20);
+                cout << "C'est au tour des pions noirs de jouer." << endl;
+                pConsole->gotoLigCol(4,20);
+                cout << "Les X representent les cases ou vous pouvez poser votre pion." << endl;
+                pConsole->gotoLigCol(5,20);
+                cout << "Appuyer sur entree pour valider" << endl;
+
+                // Incrementation de turn
+                turn++;
+
+                ///this->comptage_points();
                 //this->poser_pion(turn);
                 //system("cls");
                 //this->Display();
-                turn++;
             }
         }
     }
 
     Console::deleteInstance();
-
-
-
 }
 
 void Plateau::case_possible (int turn)
@@ -508,8 +572,8 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
     Console* pConsole = NULL;
     int ligne=0, colonne=0;
     char c = 0;
-    int d=1;
-    int v=0;
+    int d = 1;
+    int v = 0;
 
     // Alloue la mémoire du pointeur
     pConsole = Console::getInstance();
@@ -563,13 +627,14 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
             case 'd':
                 colonne = colonne+2;
                 break;
-            case 'p':
+            case 13:
                 if (tab[ligne-1][(colonne-2)/2]!='X')
                 {
                     system("cls");
-                    cout<<"Vous ne pouvez pas posez de pion ici. Appuyez sur espace pour continuer";
-                    cin>>v;
-                    if (v==27)
+                    pConsole->gotoLigCol(2, 0);
+                    cout << "Vous ne pouvez pas posez de pion ici. Appuyez sur '1' pour continuer.";
+                    cin >> v;
+                    if (v == 1)
                     {
                         system("cls");
                         this->Display();
