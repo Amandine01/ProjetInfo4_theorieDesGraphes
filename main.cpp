@@ -3,6 +3,9 @@
 #include <vector>
 #include "console.h"
 
+// Sources
+// M. Segado
+// OpenClasseroom -> https://openclassrooms.com/courses/lecture-et-ecriture-dans-les-fichiers-en-c
 
 using namespace std;
 

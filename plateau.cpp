@@ -20,7 +20,7 @@ Plateau::Plateau()
     m_lig=4;
     m_col=4;
 
-    /// Creation duAman plateau (double for pour un tableau en 2D)
+    /// Creation du plateau (double for pour un tableau en 2D)
     for(int i=0; i<8; i++)
     {
         for(int j=0; j<8; j++)
@@ -48,6 +48,7 @@ void Plateau::Display()
     Console* pConsole = NULL;
 
     /// Affichage tableau
+    /// affichage des chiffres
     pConsole->setColor(COLOR_RED);
     cout<<"  a b c d e f g h"<<endl;
 
@@ -82,6 +83,50 @@ void Plateau::Display()
         }
         pConsole->setColor(COLOR_DEFAULT);
         cout<<endl;
+    }
+    pConsole->gotoLigCol(15,0);
+    cout << "Appuyer sur echap pour sauvegarder et quitter" << endl;
+}
+
+void Plateau :: sauvegarder_partie()
+{
+    /// Sauvegarde
+    // Ouverture du fichier en écriture avec effacement du fichier ouvert
+    ofstream fichier("sauvegarde.txt", ios::out | ios::trunc);
+
+        if(fichier)
+        {
+            for(int i=0; i<8; i++)
+            {
+                for(int j=0; j<8; j++)
+                {
+                    fichier << tab[i][j];
+                }
+                fichier << endl;
+            }
+
+            // Fermer ficher
+            fichier.close();
+        }
+        else
+                cerr << "Impossible d'ouvrir le fichier !" << endl;
+
+}
+
+void Plateau :: charger_partie()
+{
+    // Ouverture du fichier
+    std::ifstream presentation("sauvegarder.txt",ios::in);
+    if(presentation)
+    {
+        for(int i=0; i<8; i++)
+        {
+            for(int j=0; j<8; j++)
+            {
+                // Ecrire dans le tableau
+                presentation >> tab[i][j];
+            }
+        }
     }
 }
 
@@ -146,6 +191,8 @@ void Plateau::Bouclejeu()
                 pConsole->gotoLigCol(4,20);
                 cout << "Les X representent les cases ou vous pouvez poser votre pion." << endl;
                 pConsole->gotoLigCol(5,20);
+                cout << "Pour valider votre choix appuyer sur entree." << endl;
+                pConsole->gotoLigCol(7,20);
                 cout << "Appuyez sur une touche pour continuer." << endl;
 
                 /// Incrementation de turn
@@ -192,6 +239,8 @@ void Plateau::Bouclejeu()
                 pConsole->gotoLigCol(4,20);
                 cout << "Les X representent les cases ou vous pouvez poser votre pion." << endl;
                 pConsole->gotoLigCol(5,20);
+                cout << "Pour valider votre choix appuyer sur entree." << endl;
+                pConsole->gotoLigCol(7,20);
                 cout << "Appuyez sur une touche pour continuer." << endl;
 
                 /// Incrementation de turn
@@ -374,13 +423,13 @@ void Plateau::menu_jeu()
     {
         ///Affiche le menu
 
-        cout<<"Voulez-vous :"<<endl<<endl;
-        cout << "1- Jouer a deux joueur" << endl;
-        cout << "2- Jouer contre l'ordinateur" << endl;
-        cout << "3- Charger une partie" <<endl;
-        cout<<"4- Sauvegarder une partie"<<endl;
-        cout << "5- Connaitre les regles du jeu" << endl;
-        cout << "6- Quitter" << endl << endl;
+        cout << "Voulez-vous :" << endl << endl;
+        cout << "1 - Jouer a deux joueur" << endl << endl;
+        cout << "2 - Jouer contre l'ordinateur" << endl << endl;
+        cout << "3 - Charger une partie" <<endl << endl;
+        cout << "4 - Sauvegarder une partie"<<endl << endl;
+        cout << "5 - Connaitre les regles du jeu" << endl << endl;
+        cout << "6 - Quitter" << endl << endl << endl;
         cout << "Rentrer la valeur de votre choix : ";
 
         ///Rentre la valeur voulu
@@ -403,7 +452,8 @@ void Plateau::menu_jeu()
         case 3:
         {
             system("cls");
-            cout<<"charger une partie "<<endl;
+            this->charger_partie();
+            this->Bouclejeu();
             break;
         }
 
@@ -420,7 +470,7 @@ void Plateau::menu_jeu()
             ///Affichage des règles
             cout<<"Regles de jeu :"<<endl<<endl<<endl;
             cout<<"Deroulement de la partie :"<<endl<<endl;
-            cout<<"Poser un pion --> Ou? : Sur une case vide adjacente a un pion adverse."<<endl;
+            cout<<"Poser un pion --> Ou ? : Sur une case vide adjacente a un pion adverse."<<endl;
             cout<<"              --> Comment ? : Le joueur doit encadrer 1 ou plusieurs pions"<<endl;
             cout<<"adverses (dans 1 des 8 directions) entre le pion qu'il pose"<<endl;
             cout<<"et un pion de sa couleur. Ensuite, le joueur retourne le ou les pions"<<endl;
@@ -428,7 +478,7 @@ void Plateau::menu_jeu()
             cout<<"Attention : Il n'y a pas de reaction en chaine, les pions retournes"<<endl;
             cout<<"ne peuvent pas servir a en retourner d'autres lors du meme tour de jeu."<<endl<<endl;
             cout<<"Deplacement :"<<endl<<endl;
-            cout<<"Haut : z, Bas : s, Droite : d, Gauche : Q, Valider : P"<<endl<<endl;
+            cout<<"Haut : z, Bas : s, Droite : d, Gauche : q, Valider : entree"<<endl<<endl;
             cout<<"Fin de la partie :"<<endl<<endl;
             cout<<"Les 2 joueurs ne peuvent plus poser de pions. Le Vainqueur est celui"<<endl;
             cout<<"qui a le plus grand nombre de pions sur l'Othellier."<<endl;
@@ -526,6 +576,11 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
             case 'd': ///Droite
                 colonne = colonne+2;///Incrémentation par 2, venant du fait de l'affichage spécial de notre tableau
                 break;
+            case 27:
+                sauvegarder_partie();
+                system("cls");
+                menu_jeu();
+                break;
             case 13 : ///Entrée
                 if (tab[ligne-1][(colonne-2)/2]!='X') ///Calcul dépendant de l'affichage de notre tableau
                 {
@@ -557,7 +612,35 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
 
 }
 
-///Fonction affichant des pages de jeu
+void Plateau :: page_victoire()
+{
+    // Effacer l'ecran
+    system("cls");
+
+    std::ifstream presentation("page_victoire.txt");
+    if(presentation)
+    {
+        // On stock dans la chaine le fichier
+        std::string texte;
+
+        // Tant qu'on a pas atteint la fin de regles.txt
+        while(getline(presentation,texte))
+        {
+            // On affiche les regles du jeu
+            std::cout << texte << std::endl;
+        }
+    }
+
+    // Blindage ouverture du fichier
+    else
+    {
+        std::cout << "Erreur fichier presentation" << std::endl;
+    }
+
+    system("PAUSE");
+    system("cls");
+}
+
 void Plateau::pageAccueil()
 {
     /// effacer l'ecran

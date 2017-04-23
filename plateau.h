@@ -22,7 +22,8 @@ public:
     void initialiser_plateau();
     void menu_jeu();
     void deplacer_curseur(char dep, int lig, int col, int turn);
-    void enregistrer_partie();
+    void sauvegarder_partie();
+    void charger_partie();
     void pageAccueil();
     void pageSortie();
     void pageVictoire();
@@ -36,6 +37,7 @@ public:
     //void retournement_pion_blanc (int v, int w);
     //void retournement_pion_noir (int v, int w);
     void condition_de_fin();
+    void page_victoire();
 
     void poser_pion_IA(int ligne, int colonne);
     void case_possible_IA();
