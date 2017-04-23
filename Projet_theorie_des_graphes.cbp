@@ -32,13 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Joueur.cpp" />
-		<Unit filename="Joueur.h" />
 		<Unit filename="console.cpp" />
 		<Unit filename="console.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="pion.cpp" />
-		<Unit filename="pion.h" />
 		<Unit filename="plateau.cpp" />
 		<Unit filename="plateau.h" />
 		<Extensions>

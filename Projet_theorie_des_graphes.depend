@@ -284,3 +284,35 @@
 	<ctime>
 	<windows.h>
 
+1492973272 source:c:\users\user\desktop\theorie des graphes 6\console.cpp
+	"console.h"
+	<conio.h>
+	<windows.h>
+
+1492973274 c:\users\user\desktop\theorie des graphes 6\console.h
+	<iostream>
+
+1492990808 source:c:\users\user\desktop\theorie des graphes 6\main.cpp
+	<iostream>
+	"plateau.h"
+	<vector>
+	"console.h"
+
+1492973286 c:\users\user\desktop\theorie des graphes 6\plateau.h
+	"console.h"
+	<vector>
+
+1492990847 source:c:\users\user\desktop\theorie des graphes 6\plateau.cpp
+	<vector>
+	"plateau.h"
+	<iostream>
+	<string>
+	<cstdlib>
+	"console.h"
+	<cstdio>
+	<fstream>
+	<map>
+	"conio.h"
+	<ctime>
+	<windows.h>
+

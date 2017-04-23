@@ -20,7 +20,7 @@ Plateau::Plateau()
     m_lig=4;
     m_col=4;
 
-    /// Creation du plateau (double for pour un tableau en 2D)
+    /// Creation duAman plateau (double for pour un tableau en 2D)
     for(int i=0; i<8; i++)
     {
         for(int j=0; j<8; j++)
@@ -465,28 +465,28 @@ void Plateau::menu_jeu()
     }
 }
 
+///Fonction de déplacement de curseur
 void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
 {
-    // Ressources
+    /// Ressources
     Console* pConsole = NULL;
-    int ligne=0, colonne=0;
-    char c = 0;
-    int d = 1;
+    int ligne=0, colonne=0; ///similaire à x et y
+    char c = 0; ///Variable d'entrée pour le switch
+    int d = 1; ///Variable de condition de sortie de boucle while
 
 
-    // Alloue la mémoire du pointeur
+    /// Alloue la mémoire du pointeur
     pConsole = Console::getInstance();
 
-    // Affichage avec gotoligcol et couleur
+    /// Affichage avec gotoligcol et couleur
     pConsole->gotoLigCol(20, 0);
-
     pConsole->setColor(COLOR_DEFAULT);
 
-    // Boucle événementielle
+    /// Boucle événementielle
     while (d!=2)
     {
 
-        // Blindage
+        /// Blindage des bords du plateau
         if (ligne<1)
         {
             ligne = 1;
@@ -505,7 +505,7 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
             colonne = 18;
         }
 
-        // Si on a appuyé sur une touche du clavier
+        /// Si on a appuyé sur une touche du clavier
         if (pConsole->isKeyboardPressed())
         {
 
@@ -514,20 +514,20 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
 
             switch(c)
             {
-            case 'z':
+            case 'z':  ///Monter
                 ligne--;
                 break;
-            case 's':
+            case 's': ///Descendre
                 ligne++;
                 break;
-            case 'q':
-                colonne = colonne-2;
+            case 'q': ///Gauche
+                colonne = colonne-2; ///Incrémentation par 2, venant du fait de l'affichage spécial de notre tableau
                 break;
-            case 'd':
-                colonne = colonne+2;
+            case 'd': ///Droite
+                colonne = colonne+2;///Incrémentation par 2, venant du fait de l'affichage spécial de notre tableau
                 break;
-            case 13 :
-                if (tab[ligne-1][(colonne-2)/2]!='X')
+            case 13 : ///Entrée
+                if (tab[ligne-1][(colonne-2)/2]!='X') ///Calcul dépendant de l'affichage de notre tableau
                 {
                     pConsole->gotoLigCol(3, 20);
                     cout << "Vous ne pouvez pas posez de pion ici."<<endl;
@@ -538,47 +538,46 @@ void Plateau::deplacer_curseur(char dep, int m_lig, int m_col,int turn)
                 }
                 else
                 {
-                    this->poser_pion(turn,ligne,colonne);
+                    this->poser_pion(turn,ligne,colonne); ///Appel de la fonction poser pion
                     d=2;
                 }
                 break;
 
-            ///pConsole->gotoLigCol(ligne, colonne);
-            default:
+            default:  ///Pour blinder les autres touches
                 break;
             }
 
         }
 
-        pConsole->gotoLigCol(ligne, colonne);
+        pConsole->gotoLigCol(ligne, colonne); ///Pour que le curseur soit à la position voulue
     }
 
-    // Libère la mémoire du pointeur !
+    /// Libère la mémoire du pointeur !
     Console::deleteInstance();
 
 }
 
-//Méthodes affichant des pages de jeu
+///Fonction affichant des pages de jeu
 void Plateau::pageAccueil()
 {
-    // effacer l'ecran
+    /// effacer l'ecran
     system("cls");
 
     std::ifstream presentation("presentation.txt");
     if(presentation)
     {
-        // On stock dans la chaine le fichier
+        /// On stock dans la chaine le fichier
         std::string texte;
 
-        // Tant qu'on a pas atteint la fin de regles.txt
+        /// Tant qu'on a pas atteint la fin de regles.txt
         while(getline(presentation,texte))
         {
-            // On affiche les regles du jeu
+            /// On affiche les regles du jeu
             std::cout << texte << std::endl;
         }
     }
 
-    // Blindage ouverture du fichier
+    /// Blindage ouverture du fichier
     else
     {
         std::cout << "Erreur fichier presentation" << std::endl;
@@ -586,58 +585,53 @@ void Plateau::pageAccueil()
 
     system("PAUSE");
     system("cls");
-
-    ///this->DetectionTouche();
-    ///system("cls");
 }
 
-void Plateau::pageSortie()
-{
-    std::cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << std::endl << std::endl;
-    std::cout << "                                                 " << std::endl << std::endl;
-    std::cout << "                                                 " << std::endl << std::endl;
-    std::cout << "                                                 " << std::endl << std::endl;
-    std::cout << "                                                 " << std::endl << std::endl;
-    std::cout << "              MERCI D'ETRE VENU                  " << std::endl << std::endl;
-    std::cout << "          A BIENTOT POUR DE NOUVELLES            "<<std::endl;
-    std::cout << "                                                 "<<std::endl;
-    std::cout << "                    :)                           "<<std::endl;
-    std::cout << "                                                 "<<std::endl;
-    std::cout << "                                                 "<<std::endl;
-    std::cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << std::endl << std::endl;
-    ///Affiche la page de victoire
-    ///this->DetectionTouche();
-    system("cls");
-}
+//void Plateau::pageSortie()
+//{
+//    std::cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << std::endl << std::endl;
+//    std::cout << "                                                 " << std::endl << std::endl;
+//    std::cout << "                                                 " << std::endl << std::endl;
+//    std::cout << "                                                 " << std::endl << std::endl;
+//    std::cout << "                                                 " << std::endl << std::endl;
+//    std::cout << "              MERCI D'ETRE VENU                  " << std::endl << std::endl;
+//    std::cout << "          A BIENTOT POUR DE NOUVELLES            "<<std::endl;
+//    std::cout << "                                                 "<<std::endl;
+//    std::cout << "                    :)                           "<<std::endl;
+//    std::cout << "                                                 "<<std::endl;
+//    std::cout << "                                                 "<<std::endl;
+//    std::cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << std::endl << std::endl;
+//    ///Affiche la page de victoire
+//    ///this->DetectionTouche();
+//    system("cls");
+//}
 
+///Fonction pour compter les points lorsque le jeu est fini
 void Plateau::comptage_points()
 {
-    // Poiteur sur console
-    Console* pConsole = NULL;
-
-    // Allouer la mémoire du pointeur
-    pConsole = Console::getInstance();
+    ///Variables
     int points_noir=0;
     int points_blanc=0;
     int difference1=0;
     int difference2=0;
-    int points_supp=0;
-    ///system("cls");
-    for (int i=0; i<8; i++)
+    int points_supp=0; ///Représente les cases vides
+
+
+    for (int i=0; i<8; i++)///double for pour les tableaux en 2D
     {
         for (int j=0; j<8; j++)
         {
             if (tab[i][j]=='B')
             {
-                points_blanc++;
+                points_blanc++;///On incrémente les points blancs lorsqu'on tombe sur un pion blanc
             }
             if (tab[i][j]=='N')
             {
-                points_noir++;
+                points_noir++; ///On incrémente les points noirs lorsqu'on tombe sur un pion noir
             }
             if (tab[i][j]=='-')
             {
-                points_supp++;
+                points_supp++; ///On incrémente les points supplémentaires lorsque l'on tombe sur une case vide
             }
         }
     }
