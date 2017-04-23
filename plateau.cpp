@@ -983,3 +983,172 @@ void Plateau::poser_pion_IA(int ligne, int colonne)
         tab[v][w-1]='B';
 
 }
+
+
+//version H
+//void Board::Flip()
+//{
+//    char allie;
+//    char symbadverse;
+//    if(this->m_tour % 2 == 0)
+//    {
+//      allie = this->p2.getSymbol();
+//    }
+//    else
+//    {
+//      allie = this->p1.getSymbol();
+//    }
+//    if(allie == 'R')
+//    {
+//        symbadverse= 'B';
+//    }
+//    else
+//    {
+//        symbadverse= 'R';
+//    }
+//
+//    for(int i= this->m_x+1; i<8; i++)// a bas
+//    {
+//        if(tab[i][m_y] == 223)
+//        {
+//            i=9;
+//        }
+//        else if(tab[i][m_y] == allie)
+//        {
+//            for(int j= i-1; j>m_x; j--)
+//            {
+//                tab[j][m_y]= allie;
+//
+//            }
+//        }
+//    }
+//    for(int i= this->m_x-1; i>-1; i--)// a haut
+//    {
+//        if(tab[i][m_y] == 223)
+//        {
+//            i= -3;
+//        }
+//        else if(tab[i][m_y] == allie)
+//        {
+//            for(int j= i+1; j<m_x; j++)
+//            {
+//                tab[j][m_y]= allie;
+//
+//            }
+//        }
+//    }
+//    for(int i= this->m_y-1; i>-1; i--)// en gauche
+//    {
+//        if(tab[m_x][i] == 223)
+//        {
+//            i= -3;
+//        }
+//        else if(tab[m_x][i] == allie)
+//        {
+//            for(int j= i+1; j<m_y; j++)
+//            {
+//                tab[m_x][j]= allie;
+//
+//            }
+//        }
+//    }
+//    for(int i= this->m_y+1; i<8; i++)// en droite
+//    {
+//        if(tab[m_x][i] == 223)
+//        {
+//            i=9;
+//        }
+//        else if(tab[m_x][i] == allie)
+//        {
+//            for(int j= i-1; j>m_y; j--)
+//            {
+//                tab[m_x][j]= allie;
+//
+//            }
+//        }
+//    }
+//    int i=1;
+//    while(m_x-i < 8 || m_x-i > -1 || m_y-i < 8 || m_y-i> -1)// diagonale haut gauche
+//    {
+//
+//        if(tab[m_x-i][m_y-i] == 223)
+//        {
+//            i=9;
+//        }
+//        else if(tab[m_x-i][m_y-i] == allie)
+//        {
+//            int j=1;
+//            while(m_x-i+j != m_x && m_y-i+j != m_y)
+//            {
+//                tab[m_x-i+j][m_y-i+j]= allie;
+//                j++;
+//            }
+//        }
+//        i++;
+//    }
+//
+//
+//    int k=1;
+//    while(m_x+k < 8 || m_x+k > -1 || m_y-k < 8 || m_y-k> -1)
+//    {
+//
+//        if(tab[m_x+k][m_y+k] == 223)
+//        {
+//            k=9;
+//        }
+//        else if(tab[m_x+k][m_y+k] == allie)
+//        {
+//            int j=1;
+//            while(m_x+k-j != m_x && m_y+k-j != m_y)
+//            {
+//                tab[m_x+k-j][m_y+k-j]= allie;
+//                j++;
+//            }
+//        }
+//        k++;
+//    }
+//
+//
+//    int a=1;
+//
+//    while(m_x-a < 8 || m_x-a > -1 || m_y+a < 8 || m_y+a> -1)
+//    {
+//
+//        if(tab[m_x-a][m_y+a] == 223)
+//        {
+//            a=9;
+//        }
+//        else if(tab[m_x-a][m_y+a] == allie)
+//        {
+//            int j=1;
+//            while(m_x-a+j != m_x && m_y+a-j != m_y)
+//            {
+//                tab[m_x-a+j][m_y+a-j]= allie;
+//                j++;
+//            }
+//        }
+//        a++;
+//    }
+//
+//
+//
+//int b=1;
+//    while(m_x+b < 8 || m_x+b > -1 || m_y-b < 8 || m_y-b> -1)// diagonale bas gauche
+//    {
+//
+//        if(tab[m_x+b][m_y-b] == 223)
+//        {
+//            b=9;
+//        }
+//        else if(tab[m_x+b][m_y-b] == allie)
+//        {
+//            int j=1;
+//            while(m_x+b-j != m_x && m_y-b+j != m_y)
+//            {
+//                tab[m_x+b-j][m_y-b+j]= allie;
+//                j++;
+//            }
+//        }
+//        b++;
+//    }
+//}
