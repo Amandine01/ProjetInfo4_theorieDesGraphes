@@ -143,7 +143,7 @@
 1492698781 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\projet_theorie_des_graphes\joueur.h
 	"plateau.h"
 
-1492714223 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\console.cpp
+1492938890 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\console.cpp
 	"console.h"
 	<conio.h>
 	<windows.h>
@@ -158,14 +158,14 @@
 1492714223 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\joueur.h
 	"plateau.h"
 
-1492938692 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\plateau.h
+1492969754 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\plateau.h
 	"console.h"
 	<vector>
 
 1492714224 c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\pion.h
 	<string>
 
-1492714224 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\main.cpp
+1492938890 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\main.cpp
 	<iostream>
 	"pion.h"
 	"plateau.h"
@@ -176,10 +176,9 @@
 	"pion.h"
 	<string>
 
-1492767485 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\plateau.cpp
+1492980346 source:c:\users\abizmil odelia\desktop\github\projetinfo4_theoriedesgraphes\plateau.cpp
 	<vector>
 	"plateau.h"
-	"pion.h"
 	<iostream>
 	<string>
 	<cstdlib>
@@ -187,6 +186,9 @@
 	<cstdio>
 	<fstream>
 	<map>
+	"conio.h"
+	<ctime>
+	<windows.h>
 
 1492767937 source:c:\users\admin.pc-lab\desktop\theorie des graphes 4\theorie des graphes 4\console.cpp
 	"console.h"
