@@ -361,7 +361,7 @@ void Plateau::poser_pion(int turn,int ligne, int colonne)
     {
         tab[ligne-1][(colonne-2)/2]='B' ;
     }
-
+//
 //        for(int i=0; i<8; i++)
 //        {
 //            for(int j=0; j<8; j++)
