@@ -34,6 +34,7 @@ public:
     void effacer_case_possible();
     void poser_pion(int turn,int ligne, int colonne);
     void comptage_points();
+<<<<<<< HEAD
     void retournement_pion_blanc (int v, int w);
     void retournement_pion_noir (int v, int w);
     void condition_de_fin();
@@ -41,6 +42,8 @@ public:
     void poser_pion_IA(int ligne, int colonne);
     void case_possible_IA();
     void Bouclejeu_IA();
+=======
+>>>>>>> origin/master
     ///accesseurs
 
     int getLongueur_plateau();

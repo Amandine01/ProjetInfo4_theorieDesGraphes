@@ -77,7 +77,7 @@ void Console::setColor(Color col)
     switch (col)
     {
         case COLOR_WHITE:
-            this->_setColor(15, 0);
+            this->_setColor(15, 15);
             break;
         case COLOR_BLACK:
             this->_setColor(0, 0);
@@ -89,7 +89,7 @@ void Console::setColor(Color col)
             this->_setColor(15, 2);
             break;
         case COLOR_BLUE:
-            this->_setColor(9, 0);
+            this->_setColor(11, 0);
             break;
         case COLOR_YELLOW:
             this->_setColor(14, 0);

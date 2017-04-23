@@ -188,3 +188,97 @@
 	<fstream>
 	<map>
 
+1492767937 source:c:\users\admin.pc-lab\desktop\theorie des graphes 4\theorie des graphes 4\console.cpp
+	"console.h"
+	<conio.h>
+	<windows.h>
+
+1492767937 c:\users\admin.pc-lab\desktop\theorie des graphes 4\theorie des graphes 4\console.h
+	<iostream>
+
+1492767937 source:c:\users\admin.pc-lab\desktop\theorie des graphes 4\theorie des graphes 4\joueur.cpp
+	"Joueur.h"
+	"Plateau.h"
+
+1492767937 c:\users\admin.pc-lab\desktop\theorie des graphes 4\theorie des graphes 4\joueur.h
+	"plateau.h"
+
+1492777748 c:\users\admin.pc-lab\desktop\theorie des graphes 4\theorie des graphes 4\plateau.h
+	"pion.h"
+	"console.h"
+	<vector>
+
+1492767937 c:\users\admin.pc-lab\desktop\theorie des graphes 4\theorie des graphes 4\pion.h
+	<string>
+
+1492767937 source:c:\users\admin.pc-lab\desktop\theorie des graphes 4\theorie des graphes 4\main.cpp
+	<iostream>
+	"pion.h"
+	"plateau.h"
+	<vector>
+	"console.h"
+
+1492767937 source:c:\users\admin.pc-lab\desktop\theorie des graphes 4\theorie des graphes 4\pion.cpp
+	"pion.h"
+	<string>
+
+1492779936 source:c:\users\admin.pc-lab\desktop\theorie des graphes 4\theorie des graphes 4\plateau.cpp
+	<vector>
+	"plateau.h"
+	"pion.h"
+	<iostream>
+	<string>
+	<cstdlib>
+	"console.h"
+	<cstdio>
+	<fstream>
+	<map>
+	"conio.h"
+
+1492885608 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\console.cpp
+	"console.h"
+	<conio.h>
+	<windows.h>
+
+1492715879 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\console.h
+	<iostream>
+
+1492715879 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\joueur.cpp
+	"Joueur.h"
+	"Plateau.h"
+
+1492715879 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\joueur.h
+	"plateau.h"
+
+1492881014 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\plateau.h
+	"pion.h"
+	"console.h"
+	<vector>
+
+1492715879 c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\pion.h
+	<string>
+
+1492885505 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\main.cpp
+	<iostream>
+	"pion.h"
+	"plateau.h"
+	<vector>
+	"console.h"
+
+1492715879 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\pion.cpp
+	"pion.h"
+	<string>
+
+1492884068 source:c:\users\amandine\documents\github\projetinfo4_theoriedesgraphes\plateau.cpp
+	<vector>
+	"plateau.h"
+	"pion.h"
+	<iostream>
+	<string>
+	<cstdlib>
+	"console.h"
+	<cstdio>
+	<fstream>
+	<map>
+	"conio.h"
+
